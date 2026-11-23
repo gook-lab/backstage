@@ -34,7 +34,7 @@ If-Match: "v1"
 
 서버 상태가 이미 버전 2라면 위 PUT은 412로 거절돼요. MDN은 412가 GET이나 HEAD가 아닌 메서드에서 `If-Match` 조건이 맞지 않을 때 나온다고 설명해요. 그러면 요청은 적용되지 않아요. MDN은 ETag가 동시 수정이 서로를 덮어쓰는 일을 막는 데 쓰인다고도 설명해요.
 
-ETag는 응답 캐시에도 쓰여요. 같은 값을 두 용도로 쓰면 구현이 단순해져요. 서버는 보통 `version` 칼럼 값을 ETag로 바꿔 내보내는 편이 좋아요.
+ETag는 응답 캐시의 재검증에도 쓰여요. 이 글의 예시에서는 아래 절의 `version` 칼럼 값을 ETag로 내보낸다고 가정해요. 그러면 HTTP 조건과 DB 조건이 같은 값을 비교해요.
 
 ## 428 — 조건 헤더 누락 거절
 
@@ -112,13 +112,6 @@ WHERE id = $2 AND version = $3;
 - 버전 칼럼은 WHERE 조건으로 같은 검사를 해요. 늦은 저장은 409를 받아요.
 
 수치와 순서는 설명을 위한 예시예요. 실제 서비스의 요청 수나 지연 시간이 아니에요.
-
-## 근거 문서
-
-- RFC 9110 (13.1.1 If-Match, 15.5.10 409, 15.5.13 412)
-- RFC 6585 (428 Precondition Required)
-- MDN — ETag, If-Match, 412, 428, Conditional requests
-- PostgreSQL 문서 — 13.2.1 Read Committed, 13.3 Explicit Locking
 
 ## 정리 — 조건 검사 위치와 충돌 처리 기준
 
