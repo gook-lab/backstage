@@ -1,0 +1,90 @@
+.dl-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.dl-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.875rem;
+}
+.dl-lab__stats {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.dl-lab__timeline {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.dl-grid {
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+.dl-grid th,
+.dl-grid td {
+  min-width: 2.25rem;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-divider);
+  text-align: center;
+  white-space: nowrap;
+}
+.dl-grid thead th {
+  color: var(--color-neutral-700);
+  font-weight: 600;
+}
+.dl-grid tbody th {
+  text-align: left;
+  font-weight: 700;
+}
+.dl-grid__server {
+  color: var(--color-neutral-700);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.dl-grid td[data-state='run'] {
+  background: var(--color-neutral-100);
+}
+.dl-grid td[data-state='pause'] {
+  background: var(--color-neutral-200);
+  color: var(--color-neutral-800);
+}
+.dl-grid td[data-state='applied'] {
+  border-color: var(--color-accent);
+  background: var(--color-accent-100);
+  color: var(--color-accent-700);
+  font-weight: 700;
+}
+.dl-grid td[data-state='rejected'] {
+  color: var(--color-neutral-800);
+  text-decoration: line-through;
+}
+.dl-grid td[data-state='skipped'] {
+  color: var(--color-neutral-700);
+}
+.dl-grid td[data-state='done'] {
+  color: var(--color-neutral-700);
+}
+.dl-grid__lockcell {
+  color: var(--color-accent-700);
+  font-size: 0.75rem;
+}
+.dl-lab__log h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+}
+.dl-lab__log ol {
+  max-height: 18rem;
+  overflow-y: auto;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+.dl-lab__log li + li {
+  margin-top: var(--space-2);
+}
+.dl-lab__tick {
+  color: var(--color-neutral-700);
+  font-variant-numeric: tabular-nums;
+}
