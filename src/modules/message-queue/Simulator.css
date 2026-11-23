@@ -1,0 +1,115 @@
+.mq-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.mq-lab h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+}
+.mq-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.mq-lab__group {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  min-width: 0;
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.mq-lab__group legend {
+  padding: 0 var(--space-1);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+.mq-lab__range {
+  display: grid;
+  gap: var(--space-1);
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+}
+.mq-lab__range input {
+  width: 100%;
+  accent-color: var(--color-accent);
+}
+.mq-lab__dice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+}
+.mq-lab__result,
+.mq-lab__timeline {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.mq-stats {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin: 0;
+}
+.mq-stat {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.mq-stat dt {
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.mq-stat dd {
+  margin: var(--space-1) 0 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.mq-timeline {
+  display: grid;
+  gap: var(--space-1);
+  max-height: 22rem;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+.mq-timeline__item {
+  display: grid;
+  grid-template-columns: 4.5rem auto 1fr;
+  align-items: start;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-left: 3px solid var(--color-divider);
+  background: var(--color-bg);
+}
+.mq-timeline__item[data-lane='consumer'] {
+  border-left-color: var(--color-accent);
+}
+.mq-timeline__t {
+  color: var(--color-neutral-700);
+  font-variant-numeric: tabular-nums;
+}
+.mq-timeline__text {
+  color: var(--color-neutral-800);
+}
+
+@media (max-width: 520px) {
+  .mq-timeline__item {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+}
