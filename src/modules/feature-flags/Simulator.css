@@ -1,0 +1,83 @@
+.ff-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.ff-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.ff-lab__sliders {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.ff-lab__slider {
+  display: grid;
+  gap: var(--space-1);
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+}
+.ff-lab__slider input {
+  width: 100%;
+  accent-color: var(--color-accent);
+}
+.ff-lab__result {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.ff-lab__verdict {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.ff-lab__verdict[data-state='mismatch'] {
+  color: var(--color-accent);
+}
+.ff-lab__stats {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.ff-lab__stats div {
+  display: grid;
+  gap: var(--space-1);
+}
+.ff-lab__stats dt {
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+}
+.ff-lab__stats dd {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+.ff-lab__reasons {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding-left: var(--space-5);
+  font-size: 0.9375rem;
+}
+.ff-lab__flip {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.ff-lab__flip caption {
+  padding-bottom: var(--space-2);
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+  text-align: left;
+}
+.ff-lab__flip th,
+.ff-lab__flip td {
+  padding: var(--space-2);
+  border-top: 1px solid var(--color-divider);
+  text-align: left;
+}
