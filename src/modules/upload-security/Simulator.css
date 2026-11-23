@@ -1,0 +1,96 @@
+.uc-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.uc-lab__file {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+}
+.uc-lab__file > div {
+  display: grid;
+  gap: var(--space-1);
+}
+.uc-lab__file dt {
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.uc-lab__file dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  word-break: break-all;
+}
+.uc-lab__checks {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.uc-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.uc-lab__result {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.uc-lab__result h3 {
+  margin: var(--space-2) 0 0;
+  font-size: 1rem;
+}
+.uc-lab__verdict {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.uc-lab__verdict[data-verdict='accepted'] {
+  color: var(--color-accent);
+}
+.uc-lab__stages,
+.uc-lab__risks {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+}
+.uc-lab__stages li,
+.uc-lab__risks li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+.uc-lab__reason {
+  color: var(--color-neutral-800);
+}
+.uc-lab__tag {
+  display: inline-block;
+  min-width: 3.5em;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--color-neutral-800);
+}
+.uc-lab__risks li[data-severity='high'] .uc-lab__tag {
+  border-color: var(--color-accent);
+  color: var(--color-accent-700);
+  font-weight: 700;
+}
+.uc-lab__stages li[data-status='rejected'] .uc-lab__tag {
+  border-color: var(--color-accent);
+  color: var(--color-accent-700);
+  font-weight: 700;
+}
