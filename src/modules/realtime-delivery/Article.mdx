@@ -1,6 +1,6 @@
 채팅 메시지가 도착하면 상대 화면에 바로 떠야 해요. 알림 배지는 새 알림이 생기면 숫자가 바뀌어야 하고, 주문 상태는 "배송 시작"이 되는 순간 버튼 문구가 바뀌어야 해요. 세 장면 모두 **서버가 먼저 말하는** 순간이 필요해요.
 
-이 글은 한 질문에서 출발해요. **채팅 · 알림 · 주문 상태는 어떤 방식으로 받아야 할까요?** 답을 찾으려면 HTTP가 왜 서버 쪽에서 먼저 말하기 어려운지, 네 가지 방식(짧은 폴링, 롱 폴링, SSE, WebSocket)이 연결을 어떻게 쓰는지, 그리고 연결이 끊겼을 때 무엇을 놓치는지를 차례로 봐야 해요.
+이 글은 HTTP가 서버에서 먼저 말하기 어려운 이유에서 출발해요. 그다음 네 가지 방식(짧은 폴링, 롱 폴링, SSE, WebSocket)이 연결을 어떻게 쓰는지, 연결이 끊겼을 때 무엇을 놓치는지를 차례로 봐요.
 
 글의 숫자는 모두 설명을 위한 예시예요. 아래 시뮬레이터의 기본값과 같아요. 시뮬레이터에서 10분 동안 클라이언트 10명에게 분당 60건의 이벤트가 도착하고, 가운데 90초 동안 연결이 끊겨요.
 
@@ -39,11 +39,13 @@ SSE(Server-Sent Events)는 `text/event-stream` 형식의 응답을 끊지 않고
 
 SSE는 방향이 하나예요. 서버에서 클라이언트로만 흘러요. 클라이언트가 보낼 것이 있으면 따로 `POST` 요청을 보내요. 알림, 주문 상태, 피드 갱신처럼 서버가 주도하는 데이터에 맞아요.
 
-`EventSource`는 연결이 끊기면 스스로 다시 연결해요. 명세는 연결을 다시 세우는 과정을 정의하고, 재연결 때 `Last-Event-ID` 요청 헤더에 마지막으로 받은 `id`를 실어 보내요. 서버는 이 값을 보고 그 뒤의 이벤트부터 보내면 돼요. 서버가 `retry:` 필드를 보내면 재연결까지 기다릴 시간을 바꿀 수 있어요. [MDN의 EventSource 문서](https://developer.mozilla.org/en-US/docs/Web/API/EventSource)와 [Using server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)도 같은 흐름을 설명해요.
+`EventSource`는 연결이 끊기면 스스로 다시 연결해요. 명세는 연결을 다시 세우는 과정을 정의하고, 재연결 때 `Last-Event-ID` 요청 헤더에 마지막으로 받은 `id`를 실어 보내요. 서버는 이 값을 보고 그 뒤의 이벤트부터 보내면 돼요. [MDN의 EventSource 문서](https://developer.mozilla.org/en-US/docs/Web/API/EventSource)와 [Using server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)도 같은 흐름을 설명해요.
+
+서버가 `retry:` 필드를 보내면 재연결까지 기다릴 시간을 바꿀 수 있어요.
 
 ### WebSocket — 양방향 전이중 연결
 
-WebSocket은 HTTP로 연결을 시작한 뒤 프로토콜을 바꿔 양쪽이 자유롭게 보내는 연결이에요. [RFC 6455](https://www.rfc-editor.org/rfc/rfc6455.html)에 따르면 클라이언트는 `Upgrade: websocket`과 `Sec-WebSocket-Key`를 담은 GET 요청을 보내고, 서버가 `101 Switching Protocols`로 답하면 그다음부터는 프레임을 주고받아요.
+WebSocket은 HTTP로 연결을 시작한 뒤 프로토콜을 바꿔 양쪽이 자유롭게 보내는 연결이에요. [RFC 6455](https://www.rfc-editor.org/rfc/rfc6455.html)에 따르면 클라이언트는 `Upgrade: websocket`과 `Sec-WebSocket-Key`를 담은 GET 요청을 보내요. 서버가 `101 Switching Protocols`로 답하면 그다음부터는 프레임을 주고받아요.
 
 프레임에는 Ping과 Pong이 있어요. RFC는 Ping을 받은 쪽이 Pong을 반드시 돌려주도록 정해요. 이 두 프레임으로 연결이 살아 있는지 확인할 수 있어요.
 
@@ -59,7 +61,9 @@ SSE와 WebSocket은 페이지가 열려 있어야 해요. 탭을 닫으면 연�
 
 ### WebTransport — 신규 방식 · 지원 범위 확인
 
-[MDN의 WebTransport API 문서](https://developer.mozilla.org/en-US/docs/Web/API/WebTransport_API)는 WebTransport가 HTTP/3과 QUIC 위에서 돌고, 스트림과 데이터그램을 함께 쓸 수 있다고 설명해요. 같은 문서가 2026년 3월부터 최신 기기와 브라우저에서 Baseline으로 쓸 수 있다고 설명해요. 다만 오래된 기기나 브라우저에서는 다를 수 있어요. 따라서 지금 서비스의 기본 선택으로 두기보다는, 지원 범위를 확인한 뒤 고려하는 편이 안전해요.
+[MDN의 WebTransport API 문서](https://developer.mozilla.org/en-US/docs/Web/API/WebTransport_API)는 WebTransport가 HTTP/3과 QUIC 위에서 돌고, 스트림과 데이터그램을 함께 쓸 수 있다고 설명해요. 같은 문서가 2026년 3월부터 최신 기기와 브라우저에서 Baseline으로 쓸 수 있다고 설명해요.
+
+다만 오래된 기기나 브라우저에서는 다를 수 있어요. 따라서 지금 서비스의 기본 선택으로 두기보다는, 지원 범위를 확인한 뒤 고려하는 편이 안전해요.
 
 ## 서버 비용 — 연결당 자원 점유
 
@@ -75,19 +79,29 @@ SSE와 WebSocket은 페이지가 열려 있어야 해요. 탭을 닫으면 연�
 
 서버 앞에는 보통 로드 밸런서나 리버스 프록시가 있어요. 프록시는 응답을 모아서 보내려고 버퍼링을 해요. SSE는 이벤트가 바로 나가야 하니까 버퍼링이 문제가 돼요.
 
-nginx 문서에 따르면 `proxy_buffering` 기본값은 `on`이에요. 응답 헤더 `X-Accel-Buffering: no`로 끌 수 있다고도 적혀 있어요. SSE를 프록시 뒤에서 돌린다면 이 경로의 버퍼링 설정을 확인해야 해요. 예를 들어 해당 location에 `proxy_buffering off;`를 두는 식이에요(설정 예시이며, 환경에 맞게 검토해야 해요).
+nginx 문서에 따르면 `proxy_buffering` 기본값은 `on`이에요. 응답 헤더 `X-Accel-Buffering: no`로 끌 수 있다고도 적혀 있어요.
 
-같은 문서에 따르면 `proxy_read_timeout` 기본값은 60초예요. 이 시간은 업스트림에서 읽기 두 번 사이의 간격에 걸려요. 이벤트가 한동안 없으면 프록시가 연결을 끊을 수 있어요. 그래서 SSE나 WebSocket에는 주기적으로 빈 주석(SSE의 `:` 줄)이나 Ping을 보내 연결이 살아 있음을 알려야 해요.
+SSE를 프록시 뒤에서 돌린다면 이 경로의 버퍼링 설정을 확인해야 해요. 예를 들어 해당 location에 `proxy_buffering off;`를 두는 식이에요(설정 예시이며, 환경에 맞게 검토해야 해요).
+
+같은 문서에 따르면 `proxy_read_timeout` 기본값은 60초예요. 이 시간은 업스트림에서 읽기 두 번 사이의 간격에 걸려요.
+
+이벤트가 한동안 없으면 프록시가 연결을 끊을 수 있어요. 그래서 SSE나 WebSocket에는 주기적으로 빈 주석(SSE의 `:` 줄)이나 Ping을 보내 연결이 살아 있음을 알려야 해요.
 
 ### 여러 서버 — pub/sub 백플레인
 
 서버가 한 대면 연결을 가진 서버가 이벤트를 만든 서버이기도 해요. 서버가 여러 대가 되면 주문을 처리한 서버와 클라이언트가 붙은 서버가 달라져요. 이때 이벤트를 연결 쪽 서버로 전달할 통로가 필요해요. 그 통로가 pub/sub 백플레인이에요.
 
-[Redis Pub/Sub 문서](https://redis.io/docs/latest/develop/pubsub/)는 Redis Pub/Sub이 at-most-once 전달 의미를 가진다고 설명해요. 메시지를 한 번 보내면 다시 보내지 않아요. 구독자가 그 순간 끊겨 있다면 메시지를 받을 수 없어요. 즉 백플레인은 "지금 붙어 있는 연결에게 전하는" 통로이지, 놓친 이벤트를 저장하는 곳이 아니에요. 놓친 이벤트를 채우려면 이벤트를 따로 저장해야 해요.
+[Redis Pub/Sub 문서](https://redis.io/docs/latest/develop/pubsub/)는 Redis Pub/Sub이 at-most-once 전달 의미를 가진다고 설명해요. 메시지를 한 번 보내면 다시 보내지 않아요. 구독자가 그 순간 끊겨 있다면 메시지를 받을 수 없어요.
+
+즉 백플레인은 "지금 붙어 있는 연결에게 전하는" 통로이지, 놓친 이벤트를 저장하는 곳이 아니에요. 놓친 이벤트를 채우려면 이벤트를 따로 저장해야 해요.
 
 ### 스티키 세션 — 장단점
 
-로드 밸런서가 같은 클라이언트를 같은 서버로 보내면(스티키 세션) 연결 관리가 쉬워져요. 대신 서버를 줄이거나 배포할 때 그 서버의 연결이 한꺼번에 끊기고, 부하가 고르게 나뉘지 않을 수 있어요. 이 글에서는 백플레인이 있으면 스티키 세션 없이도 전달할 수 있다는 점만 기억하면 돼요. 어느 쪽을 택할지는 배포 방식과 운영 여력을 보고 정하는 설계 판단이에요.
+로드 밸런서가 같은 클라이언트를 같은 서버로 보내면(스티키 세션) 연결 관리가 쉬워져요. 대신 서버를 줄이거나 배포할 때 그 서버의 연결이 한꺼번에 끊기고, 부하가 고르게 나뉘지 않을 수 있어요.
+
+이 글에서는 백플레인이 있으면 스티키 세션 없이도 전달할 수 있다는 점만 기억하면 돼요.
+
+어느 쪽을 택할지는 배포 방식과 운영 여력을 보고 정하는 설계 판단이에요.
 
 ## 전달 보장 — 누락 · 중복 · 순서
 
@@ -104,7 +118,7 @@ nginx 문서에 따르면 `proxy_buffering` 기본값은 `on`이에요. 응답 �
 1. **이어받기**: 마지막으로 받은 id나 커서를 보내고, 서버가 그 뒤의 이벤트를 다시 보내요. SSE는 `Last-Event-ID`가 이 역할을 해요. 서버는 이벤트를 일정 기간 저장해야 해요.
 2. **상태 재조회**: 이벤트를 다시 받지 않고, 재연결 뒤 현재 상태를 API로 한 번 가져와요. 주문 상태처럼 "지금 값"이 중요한 데이터에 잘 맞아요.
 
-시뮬레이터에서 "재연결 때 놓친 구간 이어받기"를 끄고 90초 끊김을 켜면, SSE와 WebSocket에서 끊긴 동안의 이벤트가 사라져요. 켜면 같은 흐름에서 하나도 잃지 않아요.
+시뮬레이터에서 "재연결 때 놓친 구간 이어받기"를 끄고 90초 끊김을 켜면, SSE와 WebSocket에서 끊긴 동안의 이벤트가 사라져요. 이어받기를 켜면 같은 흐름에서도 하나도 잃지 않아요.
 
 짧은 폴링은 매번 "마지막 본 시점 이후"를 묻기 때문에 끊김 뒤에도 잃지 않아요. 대신 끊긴 동안은 지연이 쌓여요.
 
@@ -128,7 +142,9 @@ function applyEvent(seen: Set<string>, ev: { id: string; body: unknown }, apply:
 
 ## 브라우저 연결 수 — HTTP/1.1과 HTTP/2의 차이
 
-[MDN의 Using server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)는 HTTP/2를 쓰지 않을 때 SSE에 최대 연결 수 제한이 있다고 경고해요. 제한은 탭마다가 아니라 브라우저 전체에 걸리고, 탭을 여러 개 열면 특히 불편해요. 같은 문서는 이 수치를 흔히 도메인당 6개로 알려져 있다고 적고, 그 출처로 Stack Overflow를 인용해요.
+[MDN의 Using server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)는 HTTP/2를 쓰지 않을 때 SSE에 최대 연결 수 제한이 있다고 경고해요. 제한은 탭마다가 아니라 브라우저 전체에 걸리고, 탭을 여러 개 열면 특히 불편해요.
+
+같은 문서는 이 수치를 흔히 도메인당 6개로 알려져 있다고 적고, 그 출처로 Stack Overflow를 인용해요.
 
 예를 들어 탭 여섯 개가 각각 SSE를 하나씩 열면 6개를 모두 써요. 일곱 번째 탭부터는 새 연결이 대기하거나 실패할 수 있어요. 해결책은 두 가지예요.
 
@@ -166,7 +182,9 @@ WebSocket도 탭마다 따로 열면 연결과 메모리가 탭 수만큼 쌓여
 
 ## 정리 — 방향 · 비용 · 재연결 기준 선택
 
-알림은 서버가 한 방향으로 보내면 되니 SSE가 잘 맞아요. 채팅처럼 양쪽이 자주 보내면 WebSocket을 고르세요. 이벤트가 드물거나 프록시 환경이 까다로우면 짧은 폴링이나 롱 폴링도 충분할 수 있어요. 어떤 방식이든 연결 하나가 서버 자원이라는 점을 잊지 마세요.
+알림은 서버가 한 방향으로 보내면 되니 SSE가 잘 맞아요. 채팅처럼 양쪽이 자주 보내면 WebSocket을 고르세요.
+
+이벤트가 드물거나 프록시 환경이 까다로우면 짧은 폴링이나 롱 폴링도 충분할 수 있어요. 어떤 방식이든 연결 하나가 서버 자원이라는 점을 잊지 마세요.
 
 더 어려운 문제는 끊겼다가 다시 붙을 때 생겨요. 이벤트 id로 이어받거나, 재연결 뒤 상태를 다시 조회해서 맞춰야 해요. 그리고 같은 이벤트가 두 번 와도 한 번만 반영되도록 id로 걸러야 해요.
 
