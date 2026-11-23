@@ -8,7 +8,7 @@ export const module: StudyModule = {
   title: 'ID 설계 — 자동 증가와 UUID',
   question: '주문 번호가 1, 2, 3 으로 늘면 안 되나요? 화면에서 임시 ID 를 만들어도 될까요?',
   summary:
-    '자동 증가 번호는 빈 번호를 남기고 추측하기 쉬워요. UUID v4 는 무작위라 인덱스 삽입을 흩뜨리고, v7 은 시간 순이에요. 64비트 정수는 JS Number 로 받으면 값이 깨지니 문자열로 받아요. 화면에서 만든 UUID 는 임시 ID 와 멱등 키로 함께 쓸 수 있어요.',
+    '자동 증가 번호는 빈 번호를 남기고 추측하기 쉬워요. UUID v4 는 무작위라 인덱스 삽입을 흩뜨리고, v7 은 시간 순이에요. 64비트 정수는 JS Number 로 받으면 값이 깨지니 문자열로 받아요. 화면에서 만든 UUID 는 임시 ID 와 멱등성 키로 함께 쓸 수 있어요.',
   minutes: 22,
   tags: ['DB', 'ID', 'UUID', 'API', '인덱스'],
   checklist: [
@@ -30,7 +30,7 @@ export const module: StudyModule = {
     },
     {
       id: 'client-generated-id',
-      text: '클라이언트가 만든 UUID 를 임시 ID 로 화면에 쓰고, 같은 값을 멱등 키로 보내 재시도가 중복 생성을 막게 하는 흐름을 설계할 수 있어요.',
+      text: '클라이언트가 만든 UUID 를 임시 ID 로 화면에 쓰고, 같은 값을 멱등성 키로 보내 재시도가 중복 생성을 막게 하는 흐름을 설계할 수 있어요.',
     },
     {
       id: 'time-ordered-cursor',
@@ -79,7 +79,7 @@ export const module: StudyModule = {
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER',
     },
     {
-      title: 'Stripe API 문서 — Idempotent requests (멱등 키로 V4 UUID 를 권장)',
+      title: 'Stripe API 문서 — Idempotent requests (멱등성 키로 V4 UUID 를 권장)',
       url: 'https://docs.stripe.com/api/idempotent_requests',
     },
   ],

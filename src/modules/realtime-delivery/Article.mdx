@@ -57,7 +57,7 @@ SSE 와 WebSocket 은 페이지가 열려 있어야 해요. 탭을 닫으면 연
 
 ### WebTransport — 신규 방식 · 지원 범위 확인
 
-[MDN 의 WebTransport API 문서](https://developer.mozilla.org/en-US/docs/Web/API/WebTransport_API)는 WebTransport 가 HTTP/3 과 QUIC 위에서 돌고, 스트림과 데이터그램을 함께 쓸 수 있다고 설명해요. 같은 문서가 2026년 3월부터 최신 기기와 브라우저에서 Baseline 으로 쓸 수 있다고 적어요. 다만 오래된 기기나 브라우저에서는 다를 수 있어요. 따라서 지금 서비스의 기본 선택으로 두기보다는, 지원 범위를 확인한 뒤 고려하는 편이 안전해요.
+[MDN 의 WebTransport API 문서](https://developer.mozilla.org/en-US/docs/Web/API/WebTransport_API)는 WebTransport 가 HTTP/3 과 QUIC 위에서 돌고, 스트림과 데이터그램을 함께 쓸 수 있다고 설명해요. 같은 문서가 2026년 3월부터 최신 기기와 브라우저에서 Baseline 으로 쓸 수 있다고 설명해요. 다만 오래된 기기나 브라우저에서는 다를 수 있어요. 따라서 지금 서비스의 기본 선택으로 두기보다는, 지원 범위를 확인한 뒤 고려하는 편이 안전해요.
 
 ## 서버 비용 — 연결당 자원 점유
 
@@ -95,7 +95,7 @@ nginx 문서에 따르면 `proxy_buffering` 기본값은 `on` 이에요. 응답 
 - 재연결 과정에서 같은 이벤트를 두 번 받아요.
 - 네트워크나 서버 경로에 따라 순서가 뒤바뀌어 보여요.
 
-### 재연결 때 놓친 구간 채우기
+### 재연결 — 놓친 구간 채우기
 
 끊긴 뒤 다시 붙을 때 놓친 구간을 채우는 방법은 두 가지예요.
 
@@ -116,7 +116,7 @@ function applyEvent(seen: Set<string>, ev: { id: string; body: unknown }, apply:
 }
 ```
 
-`seen` 을 무한정 키우면 메모리가 새요. 최근 id 몇백 개만 남기거나, 대화방이나 주문 단위로 나눠 두는 방식이 필요해요. 이것도 설계 판단이에요.
+`seen` 을 무한정 키우면 메모리가 계속 늘어요. 최근 id 몇백 개만 남기거나, 대화방이나 주문 단위로 나눠 두는 방식이 필요해요. 이것도 설계 판단이에요.
 
 ### 순서 보장 — 대상 단위 시퀀스
 
@@ -124,7 +124,7 @@ function applyEvent(seen: Set<string>, ev: { id: string; body: unknown }, apply:
 
 ## 브라우저 연결 수 — HTTP/1.1 과 HTTP/2 의 차이
 
-[MDN 의 Using server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)는 HTTP/2 를 쓰지 않을 때 SSE 에 최대 연결 수 제한이 있다고 경고해요. 제한은 탭마다가 아니라 브라우저 전체에 걸리고, 탭을 여러 개 열면 특히 아프게 느껴져요. 같은 문서는 이 수치를 흔히 도메인당 6개로 알려져 있다고 적고, 그 출처로 Stack Overflow 를 인용해요.
+[MDN 의 Using server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)는 HTTP/2 를 쓰지 않을 때 SSE 에 최대 연결 수 제한이 있다고 경고해요. 제한은 탭마다가 아니라 브라우저 전체에 걸리고, 탭을 여러 개 열면 특히 불편해요. 같은 문서는 이 수치를 흔히 도메인당 6개로 알려져 있다고 적고, 그 출처로 Stack Overflow 를 인용해요.
 
 예를 들어 탭 세 개가 각각 SSE 를 하나씩 열면 6개 제한에 가까워져요. 탭 네 개째부터는 새 연결이 대기하거나 실패할 수 있어요. 해결책은 두 가지예요.
 
@@ -149,7 +149,7 @@ WebSocket 도 탭마다 따로 열면 연결과 메모리가 탭 수만큼 쌓�
 
 ## FE 체크 포인트
 
-- **재연결은 backoff 와 jitter 로.** 끊기면 즉시 다시 붙지 말고 지수 백오프에 jitter 를 더해요. 같은 시각에 모든 탭이 붙으면 서버에 재연결 폭풍이 와요. 자세한 방법은 [가상 대기실 · 처리량 제한](/m/waiting-room)에서 이미 다뤘어요.
+- **재연결은 백오프와 jitter 로.** 끊기면 즉시 다시 붙지 말고 지수 백오프에 jitter 를 더해요. 같은 시각에 모든 탭이 붙으면 서버에 재연결 폭풍이 와요. 자세한 방법은 [가상 대기실 · 처리량 제한](/m/waiting-room)에서 이미 다뤘어요.
 - **id 로 이어받기.** SSE 는 `Last-Event-ID` 가 자동으로 붙어요. WebSocket 은 마지막 id 나 커서를 직접 보내야 해요.
 - **화면 복귀 때 다시 맞추기.** 탭이 숨겨졌다가 보이면 [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)의 `visibilitychange` 로 감지해요. 복귀할 때 상태를 한 번 재조회하면 숨긴 동안의 변화를 맞출 수 있어요. 숨긴 동안 폴링 간격을 늘리거나 멈추는 것도 배터리와 서버 부하를 줄이는 방법이에요. 이 판단은 설계 권장이에요.
 - **online 이벤트로 복구 시도.** 네트워크가 돌아왔을 때 연결을 다시 시도하면 기다림을 줄일 수 있어요.

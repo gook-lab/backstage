@@ -18,7 +18,7 @@ export const module: StudyModule = {
     },
     {
       id: 'admit-rate',
-      text: '대기실 입장 속도 R 을 백엔드 처리 능력 C 이하로 잡아야 하는 이유를 말할 수 있어요.',
+      text: '대기실 입장 속도 R 을 BE 처리 능력 C 이하로 잡아야 하는 이유를 말할 수 있어요.',
     },
     {
       id: 'position-vs-eta',
