@@ -1,0 +1,45 @@
+{
+  "name": "backstage",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "FE 개발자가 알아야 할 BE — 판단 기준 로드맵과 직접 돌려 보는 시뮬레이터",
+  "license": "MIT",
+  "packageManager": "pnpm@10.34.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "oxlint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "verify": "pnpm lint && pnpm format:check && pnpm test && pnpm build"
+  },
+  "dependencies": {
+    "@gook-lab/motion": "^0.2.7",
+    "@gook-lab/tokens": "^0.2.7",
+    "@gook-lab/ui": "^0.2.7",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^8.5.2"
+  },
+  "devDependencies": {
+    "@mdx-js/rollup": "^3.1.1",
+    "@testing-library/jest-dom": "^8.0.0",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.13",
+    "@types/mdx": "^2.0.14",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "jsdom": "^31.0.1",
+    "oxlint": "^1.94.0",
+    "prettier": "^3.10.1",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
+  }
+}
