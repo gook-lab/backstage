@@ -1,0 +1,32 @@
+.acc {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+.acc-title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+.acc-hint,
+.acc-note {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.acc-toggles {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  min-width: 0;
+}
+.acc-stats {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.acc-summary {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
