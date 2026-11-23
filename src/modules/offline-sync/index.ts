@@ -75,6 +75,10 @@ export const module: StudyModule = {
       url: 'https://www.rfc-editor.org/rfc/rfc9110',
     },
     {
+      title: 'RFC 5789 — PATCH Method for HTTP (PATCH는 안전하지도 멱등하지도 않음)',
+      url: 'https://www.rfc-editor.org/rfc/rfc5789',
+    },
+    {
       title: '위키백과 — Conflict-free replicated data type (병합 함수 성질, Apple Notes 예)',
       url: 'https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type',
     },
