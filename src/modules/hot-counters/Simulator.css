@@ -1,0 +1,104 @@
+.hc-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.hc-lab__hint,
+.hc-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.hc-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.hc-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.hc-field input[type='range'] {
+  width: 100%;
+}
+.hc-field small {
+  color: var(--color-neutral-700);
+}
+.hc-check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.hc-lab__seed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-neutral-800);
+}
+.hc-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.hc-lab__alarm {
+  margin: 0;
+  padding: var(--space-3);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg);
+  font-size: 0.9375rem;
+}
+.hc-lab__trend,
+.hc-lab__timeline {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.hc-lab__trend h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.hc-trend {
+  width: 100%;
+  height: 96px;
+}
+.hc-trend polyline {
+  fill: none;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.hc-trend__truth {
+  stroke: var(--color-neutral-800);
+}
+.hc-trend__shown {
+  stroke: var(--color-accent);
+}
+.hc-trend__now {
+  stroke: var(--color-neutral-700);
+  stroke-dasharray: 3 3;
+  vector-effect: non-scaling-stroke;
+}
+.hc-lab__now {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  margin: 0;
+}
+.hc-lab__now div {
+  display: grid;
+  gap: var(--space-1);
+}
+.hc-lab__now dt {
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.hc-lab__now dd {
+  margin: 0;
+  font-size: 1.125rem;
+  font-variant-numeric: tabular-nums;
+}
