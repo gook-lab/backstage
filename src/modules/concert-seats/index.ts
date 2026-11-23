@@ -8,13 +8,13 @@ export const module: StudyModule = {
   title: '콘서트 좌석 선점',
   question: '1만 명이 같은 좌석을 동시에 누르면 누가 가져가나요?',
   summary:
-    '결제 전에 좌석을 잠시 잡는 선점을 다뤄요. 읽고 나서 쓰면 생기는 이중 예약, 조건부 UPDATE 와 UNIQUE 제약, SKIP LOCKED 자동 배정, Redis SET NX PX 의 한계를 비교하고, 보류 만료와 늦은 결제 콜백, FE 가 409 와 카운트다운을 다루는 법까지 정리해요.',
+    '결제 전에 좌석을 잠시 잡는 선점을 다뤄요. 읽고 나서 쓰면 생기는 이중 예약, 조건부 UPDATE와 UNIQUE 제약, SKIP LOCKED 자동 배정, Redis SET NX PX의 한계를 비교하고, 보류 만료와 늦은 결제 콜백, FE가 409와 카운트다운을 다루는 법까지 정리해요.',
   minutes: 18,
   tags: ['DB', '동시성', 'Redis', 'HTTP'],
   checklist: [
     {
       id: 'hold-vs-confirm',
-      text: '선점(hold)과 결제 후 확정(confirm)을 나누는 이유를 설명하고, 좌석이 AVAILABLE, HELD, SOLD 로 바뀌는 흐름을 말할 수 있어요.',
+      text: '선점(hold)과 결제 후 확정(confirm)을 나누는 이유를 설명하고, 좌석이 AVAILABLE, HELD, SOLD로 바뀌는 흐름을 말할 수 있어요.',
     },
     {
       id: 'read-then-write',
@@ -22,15 +22,15 @@ export const module: StudyModule = {
     },
     {
       id: 'conditional-update',
-      text: '조건부 UPDATE 에서 영향받은 행 수가 0 이면 409 로 답해야 한다는 것을 알아요.',
+      text: '조건부 UPDATE에서 영향받은 행 수가 0이면 409로 답해야 한다는 것을 알아요.',
     },
     {
       id: 'unique-and-skip',
-      text: 'UNIQUE 제약은 중복 행을 DB 가 막게 하고, SKIP LOCKED 는 잠긴 행을 건너뛰어 자동 배정에 쓴다는 차이를 설명할 수 있어요.',
+      text: 'UNIQUE 제약은 중복 행을 DB가 막게 하고, SKIP LOCKED는 잠긴 행을 건너뛰어 자동 배정에 쓴다는 차이를 설명할 수 있어요.',
     },
     {
       id: 'redis-limits',
-      text: 'Redis SET NX PX 로 보류를 만들 수 있지만, Redis 가 확정 기록의 원장이 아니고 장애 때 쓰기를 잃을 수 있다는 점을 알아요.',
+      text: 'Redis SET NX PX로 보류를 만들 수 있지만, Redis가 확정 기록의 원장이 아니고 장애 때 쓰기를 잃을 수 있다는 점을 알아요.',
     },
     {
       id: 'expiry-and-late-payment',
@@ -38,7 +38,7 @@ export const module: StudyModule = {
     },
     {
       id: 'fe-checkpoints',
-      text: '카운트다운을 서버 시간으로 맞추고, 409 를 받으면 좌석을 다시 받아 오며, 확정 전에는 SOLD 로 바꾸지 않는다는 FE 규칙을 말할 수 있어요.',
+      text: '카운트다운을 서버 시간으로 맞추고, 409를 받으면 좌석을 다시 받아 오며, 확정 전에는 SOLD로 바꾸지 않는다는 FE 규칙을 말할 수 있어요.',
     },
   ],
   sources: [

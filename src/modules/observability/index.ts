@@ -6,9 +6,9 @@ export const module: StudyModule = {
   track: 'cases',
   order: 15,
   title: '로그 · 트레이스로 원인 찾기',
-  question: '사용자가 "결제가 느려요" 라고 하면, 느린 곳이 화면인지 서버인지 어떻게 알 수 있을까요?',
+  question: '사용자가 "결제가 느려요"라고 하면, 느린 곳이 화면인지 서버인지 어떻게 알 수 있을까요?',
   summary:
-    '로그, 메트릭, 트레이스가 각각 무엇을 답하는지 나눠 봐요. 요청 하나의 traceparent 로 FE 와 BE 를 잇고, span 워터폴에서 시간이 쓰인 곳을 찾아요. 평균 대신 p95 · p99 를 보는 이유와 로그에 남기면 안 되는 값도 정리해요.',
+    '로그, 메트릭, 트레이스가 각각 무엇을 답하는지 나눠 봐요. 요청 하나의 traceparent로 FE와 BE를 잇고, span 워터폴에서 시간이 쓰인 곳을 찾아요. 평균 대신 p95 · p99를 보는 이유와 로그에 남기면 안 되는 값도 정리해요.',
   minutes: 25,
   tags: ['관측성', 'API 설계', '성능', '보안'],
   checklist: [
@@ -18,7 +18,7 @@ export const module: StudyModule = {
     },
     {
       id: 'trace-link',
-      text: 'FE 요청의 traceparent 헤더가 BE 로그와 span 을 어떻게 잇는지 설명할 수 있어요.',
+      text: 'FE 요청의 traceparent 헤더가 BE 로그와 span을 어떻게 잇는지 설명할 수 있어요.',
     },
     {
       id: 'waterfall-read',
@@ -26,11 +26,11 @@ export const module: StudyModule = {
     },
     {
       id: 'percentile-read',
-      text: '평균이 괜찮아도 p95 · p99 가 나쁠 수 있는 이유를 요청 수 예시로 설명할 수 있어요.',
+      text: '평균이 괜찮아도 p95 · p99가 나쁠 수 있는 이유를 요청 수 예시로 설명할 수 있어요.',
     },
     {
       id: 'header-visibility',
-      text: 'Server-Timing 과 traceparent 가 CORS 에서 어떤 헤더 설정을 필요로 하는지 말할 수 있어요.',
+      text: 'Server-Timing과 traceparent가 CORS에서 어떤 헤더 설정을 필요로 하는지 말할 수 있어요.',
     },
     {
       id: 'log-safety',
@@ -38,7 +38,7 @@ export const module: StudyModule = {
     },
     {
       id: 'error-report-id',
-      text: 'FE 가 에러 리포트에 요청 ID 를 붙여 BE 로그와 맞춰 볼 수 있어요.',
+      text: 'FE가 에러 리포트에 요청 ID를 붙여 BE 로그와 맞춰 볼 수 있어요.',
     },
   ],
   sources: [

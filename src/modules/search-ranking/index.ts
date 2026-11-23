@@ -6,7 +6,7 @@ export const module: StudyModule = {
   track: 'cases',
   order: 21,
   title: '검색 결과 정렬 — 관련도와 랭킹',
-  question: '같은 검색어인데 왜 이 상품이 맨 위에 오나요? "추천순" 은 서버에서 무엇을 할까요?',
+  question: '같은 검색어인데 왜 이 상품이 맨 위에 오나요? "추천순"은 서버에서 무엇을 할까요?',
   summary:
     '검색 결과는 단어 포함 여부, 관련도 점수, 판매와 최신 같은 비즈니스 신호를 섞어 정렬해요. 점수가 같은 상품의 순서를 정하지 않으면 2페이지에서 중복과 누락이 생기는 장면, 그리고 개인화 결과를 캐시할 때 키에 무엇을 넣어야 하는지 정리해요.',
   minutes: 22,
@@ -18,7 +18,7 @@ export const module: StudyModule = {
     },
     {
       id: 'score-methods',
-      text: '단어 포함 수, TF-IDF, BM25 가 같은 검색어에서 순위를 다르게 만드는 이유를 시뮬레이터로 비교할 수 있어요.',
+      text: '단어 포함 수, TF-IDF, BM25가 같은 검색어에서 순위를 다르게 만드는 이유를 시뮬레이터로 비교할 수 있어요.',
     },
     {
       id: 'business-signal',
@@ -26,11 +26,11 @@ export const module: StudyModule = {
     },
     {
       id: 'tie-breaker',
-      text: '정렬 기준이 같은 상품이 있을 때 tie-breaker 가 없으면 2페이지에서 중복과 누락이 생기는 장면을 재현할 수 있어요.',
+      text: '정렬 기준이 같은 상품이 있을 때 tie-breaker가 없으면 2페이지에서 중복과 누락이 생기는 장면을 재현할 수 있어요.',
     },
     {
       id: 'search-after',
-      text: 'offset 페이지 대신 search_after 를 쓸 때 정렬 값과 고유한 tie-breaker 가 함께 필요한 이유를 설명할 수 있어요.',
+      text: 'offset 페이지 대신 search_after를 쓸 때 정렬 값과 고유한 tie-breaker가 함께 필요한 이유를 설명할 수 있어요.',
     },
     {
       id: 'cache-key',
@@ -38,12 +38,12 @@ export const module: StudyModule = {
     },
     {
       id: 'zero-results',
-      text: '0건 응답에서 오타 교정 후보를 자동 적용하지 않고 확인을 요청하는 UI 를 설계할 수 있어요.',
+      text: '0건 응답에서 오타 교정 후보를 자동 적용하지 않고 확인을 요청하는 UI를 설계할 수 있어요.',
     },
   ],
   sources: [
     {
-      title: 'Elasticsearch — Similarity settings (BM25 가 기본 similarity, k1 기본 1.2, b 기본 0.75)',
+      title: 'Elasticsearch — Similarity settings (BM25가 기본 similarity, k1 기본 1.2, b 기본 0.75)',
       url: 'https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html',
     },
     {
@@ -59,7 +59,7 @@ export const module: StudyModule = {
       url: 'https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html',
     },
     {
-      title: 'PostgreSQL — Controlling Text Search (ts_rank · ts_rank_cd 의 신호, 전역 정보를 쓰지 않는다는 설명)',
+      title: 'PostgreSQL — Controlling Text Search (ts_rank · ts_rank_cd의 신호, 전역 정보를 쓰지 않는다는 설명)',
       url: 'https://www.postgresql.org/docs/current/textsearch-controls.html',
     },
     {

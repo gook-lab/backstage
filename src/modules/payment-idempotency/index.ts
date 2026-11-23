@@ -14,7 +14,7 @@ export const module: StudyModule = {
   checklist: [
     {
       id: 'unknown-state',
-      text: '응답을 받지 못한 결제는 실패도 성공도 아닌 UNKNOWN 이고, 같은 요청을 다시 보내기 전에 주문 상태를 조회해야 한다는 것을 설명할 수 있어요.',
+      text: '응답을 받지 못한 결제는 실패도 성공도 아닌 UNKNOWN이고, 같은 요청을 다시 보내기 전에 주문 상태를 조회해야 한다는 것을 설명할 수 있어요.',
     },
     {
       id: 'key-lifecycle',
@@ -22,15 +22,15 @@ export const module: StudyModule = {
     },
     {
       id: 'in-flight',
-      text: '처리 중인 같은 키의 요청은 409 로 받고, 화면에서는 기다림으로 처리한다는 것을 알아요.',
+      text: '처리 중인 같은 키의 요청은 409로 받고, 화면에서는 기다림으로 처리한다는 것을 알아요.',
     },
     {
       id: 'webhook-dedupe',
-      text: '웹훅은 두 번 오거나 순서가 바뀔 수 있어서, 이벤트 id 로 중복을 걸러내고 처리 로직을 멱등하게 만든다는 것을 설명할 수 있어요.',
+      text: '웹훅은 두 번 오거나 순서가 바뀔 수 있어서, 이벤트 id로 중복을 걸러내고 처리 로직을 멱등하게 만든다는 것을 설명할 수 있어요.',
     },
     {
       id: 'redirect-not-proof',
-      text: '결제 완료 페이지의 쿼리 문자열은 결제의 증거가 아니고, 서버가 금액을 대조하고 승인 API 를 호출해야 한다는 것을 알아요.',
+      text: '결제 완료 페이지의 쿼리 문자열은 결제의 증거가 아니고, 서버가 금액을 대조하고 승인 API를 호출해야 한다는 것을 알아요.',
     },
     {
       id: 'outbox',
@@ -59,7 +59,7 @@ export const module: StudyModule = {
       url: 'https://microservices.io/patterns/data/transactional-outbox.html',
     },
     {
-      title: '토스페이먼츠 개발자센터 — 결제위젯 연동 (successUrl 과 결제 승인)',
+      title: '토스페이먼츠 개발자센터 — 결제위젯 연동 (successUrl과 결제 승인)',
       url: 'https://docs.tosspayments.com/guides/v2/payment-widget/integration',
     },
     {
