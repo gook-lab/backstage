@@ -1,0 +1,102 @@
+.wr {
+  display: grid;
+  gap: var(--space-6);
+}
+.wr-part {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+.wr-part__title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+.wr-hint {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.wr-sliders {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.wr-slider {
+  display: grid;
+  gap: var(--space-1);
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+}
+.wr-slider input {
+  width: 100%;
+  accent-color: var(--color-accent);
+}
+.wr-stats {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.wr-bars {
+  display: grid;
+  gap: var(--space-2);
+}
+.wr-bar-row {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: var(--space-1) var(--space-2);
+  align-items: center;
+}
+.wr-bar-row__label,
+.wr-bar-row__value {
+  color: var(--color-neutral-700);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+.wr-bar-row__value {
+  grid-column: 2;
+  overflow-wrap: anywhere;
+}
+.wr-bar-track {
+  display: block;
+  height: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-neutral-100);
+  overflow: hidden;
+}
+.wr-bar {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+}
+.wr-summary {
+  margin: 0;
+  min-height: 1.7em;
+  color: var(--color-text);
+  font-size: 0.9375rem;
+}
+.wr-timeline {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.wr-req {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+.wr-req--deny {
+  border-color: var(--color-accent);
+}
+.wr-req__time {
+  color: var(--color-neutral-800);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
