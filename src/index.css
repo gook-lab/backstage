@@ -140,6 +140,20 @@ body {
   flex: none;
   color: var(--color-accent-700);
 }
+.sidenav__search {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+.sidenav__field {
+  flex: 1;
+  min-width: 0;
+}
+.sidenav__status {
+  min-height: 1lh;
+  font-size: 0.75rem;
+  color: var(--color-neutral-700);
+}
 
 /* 글 + 오른쪽 목차 */
 .post {
