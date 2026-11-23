@@ -27,8 +27,13 @@ Vite는 빌드 결과물을 해시가 붙은 자산(JS, CSS, 이미지)으로 �
 지연 로드하는 페이지는 탭에서 처음 열 때 청크를 요청해요. 새 배포 폴더에 그 옛 해시 파일이 없으면 요청이 404가 돼요. 동적 import가 실패하면 Vite는 `vite:preloadError` 이벤트를 내요. 문서는 이 이벤트에서 페이지를 새로고침하는 예시를 보여 줘요. 이벤트에서 `preventDefault()`를 호출하면 오류가 던져지지 않아요.
 
 ```ts
+const KEY = 'last-preload-reload';
+
 window.addEventListener('vite:preloadError', (event) => {
-  // 새로고침은 한 번만 하도록 기록을 남겨 두면 무한 새로고침을 막을 수 있어요
+  const last = Number(sessionStorage.getItem(KEY) ?? 0);
+  // 1분 안에 또 실패하면 새로고침하지 않고 오류를 그대로 둬요 (무한 새로고침 방지, 예시 값)
+  if (Date.now() - last < 60_000) return;
+  sessionStorage.setItem(KEY, String(Date.now()));
   event.preventDefault();
   window.location.reload();
 });
@@ -72,7 +77,7 @@ Vercel Skew Protection 문서는 지원 프레임워크에서 배포 ID를 요�
 
 ## 헬스 체크와 연결 드레이닝 — 준비 전 트래픽 막기
 
-Kubernetes readiness probe는 컨테이너가 트래픽을 받을 준비가 됐는지 알려요. 실패하면 EndpointSlice 컨트롤러가 그 Pod의 IP를 Service의 EndpointSlice에서 빼요. 종료할 때는 SIGTERM을 보내고, 유예 기간(기본 30초)이 지나면 KILL을 보내요. 이 순서를 지켜야 옛 서버가 처리 중인 요청을 끝낼 수 있어요. 자세한 설정은 [로드 밸런싱과 연결 관리](/m/load-balancing) 글에서 봐요.
+Kubernetes readiness probe는 컨테이너가 트래픽을 받을 준비가 됐는지 알려요. 실패하면 EndpointSlice 컨트롤러가 그 Pod의 IP를 Service의 EndpointSlice에서 빼요. 종료할 때는 SIGTERM을 보내고, 유예 기간(기본 30초)이 지나면 KILL을 보내요. 앱은 SIGTERM을 받으면 새 요청을 멈추고 처리 중인 요청을 마치도록 만들어야 해요. 그래야 유예 기간 안에 옛 서버가 요청을 끊지 않고 내려가요. 자세한 설정은 [로드 밸런싱과 연결 관리](/m/load-balancing) 글에서 봐요.
 
 ## 피처 플래그 — 배포와 공개 분리
 
