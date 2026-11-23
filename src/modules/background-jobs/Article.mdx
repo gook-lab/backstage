@@ -69,6 +69,7 @@ async function waitForJob(statusUrl: string, signal: AbortSignal) {
   let delayMs = 1000;
   for (;;) {
     const res = await fetch(statusUrl, { signal });
+    if (res.redirected) return { status: 'succeeded', resultUrl: res.url };
     const job = await res.json();
     if (job.status === 'succeeded' || job.status === 'failed' || job.status === 'canceled') {
       return job;
@@ -80,9 +81,9 @@ async function waitForJob(statusUrl: string, signal: AbortSignal) {
 }
 ```
 
-`Retry-After`가 날짜 형식이면 위 코드는 숫자로 읽히지 않아 백오프 간격을 써요. 상한을 두지 않은 예시이므로 실제 코드에는 전체 대기 시간 제한을 더해요.
+`fetch`는 303 같은 리다이렉트를 기본으로 따라가요. 그래서 완료 뒤 303을 받으면 응답은 결과 자원이고 `status` 칸이 없을 수 있어요. 위 코드는 `res.redirected`로 이 경우를 먼저 완료로 처리해요. `Retry-After`가 날짜 형식이면 위 코드는 숫자로 읽히지 않아 백오프 간격을 써요. 상한을 두지 않은 예시이므로 실제 코드에는 전체 대기 시간 제한을 더해요.
 
-조회 횟수는 작업 시간을 간격으로 나눈 올림값이에요. 예시로 45초 작업을 5초 간격으로 보면 9번 조회해요. 간격을 1초로 줄이면 45번이 돼요. 이 횟수가 사용자마다 곱해져 서버가 받는 요청 수가 돼요.
+간격이 고정이면 조회 횟수는 작업 시간을 간격으로 나눈 올림값이에요. 예시로 45초 작업을 5초 간격으로 보면 9번 조회해요. 간격을 1초로 줄이면 45번이 돼요. 이 횟수가 사용자마다 곱해져 서버가 받는 요청 수가 돼요.
 
 ## 완료 알림 — 폴링 · 서버 전송 이벤트 (SSE) · 웹훅 · 이메일 비교
 
