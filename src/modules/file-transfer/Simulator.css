@@ -1,0 +1,31 @@
+.fu-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.fu-lab__range {
+  display: grid;
+  gap: var(--space-2);
+}
+.fu-lab__range input[type='range'] {
+  width: 100%;
+}
+.fu-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.9375rem;
+}
+.fu-lab__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.fu-lab__table th,
+.fu-lab__table td {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+}
+.fu-lab__table td[data-outcome='fail'] {
+  color: var(--color-accent);
+  font-weight: 700;
+}
