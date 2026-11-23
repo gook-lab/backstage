@@ -25,7 +25,7 @@ describe('인덱스 사용과 정렬 단계', () => {
     expect(p.tableRows).toBe(20);
   });
 
-  it('선택도가 낮은 상태 필터는 같은 인덱스로 훨씬 많이 훑어야 해요', () => {
+  it('드문 상태 필터는 같은 인덱스로 훨씬 많이 훑어야 해요', () => {
     const p = plan(q({ status: 'pending', period: '7d', index: 'created' }));
     expect(p.indexEntries).toBe(1000);
     expect(p.tableRows).toBe(1000);

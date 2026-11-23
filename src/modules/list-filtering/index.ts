@@ -23,7 +23,7 @@ export const module: StudyModule = {
     },
     {
       id: 'low-selectivity',
-      text: '선택도가 낮은 필터는 인덱스를 써도 많은 항목을 훑게 만든다는 것을 설명할 수 있어요.',
+      text: '조건에 맞는 행이 드문 필터는 정렬 인덱스를 따라 읽을 때 많은 항목을 훑게 만든다는 것을 설명할 수 있어요.',
     },
     {
       id: 'exact-count-cost',
