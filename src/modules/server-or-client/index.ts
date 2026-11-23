@@ -30,7 +30,7 @@ export const module: StudyModule = {
     },
     {
       id: 'heavy-decision',
-      text: '무거운 계산을 Web Worker 에 맡길지, 서버에서 할지 데이터 규모로 고를 수 있어요.',
+      text: '무거운 계산을 Web Worker에 맡길지, 서버에서 할지 데이터 규모로 고를 수 있어요.',
     },
     {
       id: 'secret-decision',
@@ -38,7 +38,7 @@ export const module: StudyModule = {
     },
     {
       id: 'response-signals',
-      text: '응답의 page · cursor, 상태 코드, 캐시 헤더를 보고 BE 가 어디서 처리하라고 기대하는지 알아볼 수 있어요.',
+      text: '응답의 page · cursor, 상태 코드, 캐시 헤더를 보고 BE가 어디서 처리하라고 기대하는지 알아볼 수 있어요.',
     },
   ],
   sources: [

@@ -6,7 +6,7 @@ export const module: StudyModule = {
   track: 'basics',
   order: 1,
   title: '페이지네이션 — offset · cursor',
-  question: '목록 API 가 offset 이면 무엇을 조심해야 하나요?',
+  question: '목록 API가 offset이면 무엇을 조심해야 하나요?',
   summary:
     '목록을 나누는 방법은 두 가지예요. 번호로 자르면 서버가 건너뛴 행을 읽고, 마지막 글의 위치로 이으면 목록이 바뀌어도 같은 자리에서 이어 받아요.',
   minutes: 12,
@@ -14,11 +14,11 @@ export const module: StudyModule = {
   checklist: [
     {
       id: 'dup-miss',
-      text: '무한 스크롤 목록에 offset 을 쓰면 중복 · 누락이 생기는 조건을 설명할 수 있다',
+      text: '무한 스크롤 목록에 offset을 쓰면 중복 · 누락이 생기는 조건을 설명할 수 있다',
     },
     {
       id: 'deep-cost',
-      text: 'offset 이 커질수록 DB 가 건너뛴 행을 읽고 버린다는 점으로 깊은 페이지가 느려지는 이유를 설명할 수 있다',
+      text: 'offset이 커질수록 DB가 건너뛴 행을 읽고 버린다는 점으로 깊은 페이지가 느려지는 이유를 설명할 수 있다',
     },
     {
       id: 'tie-breaker',
@@ -26,7 +26,7 @@ export const module: StudyModule = {
     },
     {
       id: 'keyset-index',
-      text: '(created_at, id) 조건과 ORDER BY 를 같은 순서의 복합 인덱스에 맞출 수 있다',
+      text: '(created_at, id) 조건과 ORDER BY를 같은 순서의 복합 인덱스에 맞출 수 있다',
     },
     {
       id: 'total-count',
@@ -34,7 +34,7 @@ export const module: StudyModule = {
     },
     {
       id: 'response-shape',
-      text: '응답의 page · total 또는 nextCursor · hasMore 를 보고 어떤 방식인지 알아보고, BE 에 물을 질문을 고를 수 있다',
+      text: '응답의 page · total 또는 nextCursor · hasMore를 보고 어떤 방식인지 알아보고, BE에 물을 질문을 고를 수 있다',
     },
   ],
   sources: [

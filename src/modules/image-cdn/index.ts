@@ -6,19 +6,19 @@ export const module: StudyModule = {
   track: 'cases',
   order: 13,
   title: '이미지와 CDN',
-  question: '원본 이미지를 그대로 내려받아 CSS 로 줄여 보여 줘도 될까요?',
+  question: '원본 이미지를 그대로 내려받아 CSS로 줄여 보여 줘도 될까요?',
   summary:
-    '화면에 맞는 크기와 형식의 변형을 만들고, srcset · sizes 로 브라우저가 고르게 해요. 캐시 키에 무엇을 넣어야 잘못된 파일이 나오지 않는지, 해시 파일 이름과 immutable 로 얼마나 길게 캐시할지, 무효화와 원본 요청이 어떤 비용을 만드는지 함께 봐요.',
+    '화면에 맞는 크기와 형식의 변형을 만들고, srcset · sizes로 브라우저가 고르게 해요. 캐시 키에 무엇을 넣어야 잘못된 파일이 나오지 않는지, 해시 파일 이름과 immutable로 얼마나 길게 캐시할지, 무효화와 원본 요청이 어떤 비용을 만드는지 함께 봐요.',
   minutes: 25,
   tags: ['캐시', '성능', 'HTTP', '이미지'],
   checklist: [
     {
       id: 'srcset-choice',
-      text: '원본 대신 화면 너비와 DPR 에 맞는 변형을 srcset · sizes 로 알려 주면 브라우저가 파일을 고르는 과정을 설명할 수 있어요.',
+      text: '원본 대신 화면 너비와 DPR에 맞는 변형을 srcset · sizes로 알려 주면 브라우저가 파일을 고르는 과정을 설명할 수 있어요.',
     },
     {
       id: 'format-negotiate',
-      text: 'AVIF · WebP 를 쓸 때 지원하지 않는 기기에 어떤 형식을 줄지 Accept 협상과 폴백으로 설명할 수 있어요.',
+      text: 'AVIF · WebP를 쓸 때 지원하지 않는 기기에 어떤 형식을 줄지 Accept 협상과 폴백으로 설명할 수 있어요.',
     },
     {
       id: 'cache-key',
@@ -30,7 +30,7 @@ export const module: StudyModule = {
     },
     {
       id: 'immutable',
-      text: '파일 이름에 내용 해시를 넣을 때만 immutable 로 길게 캐시해도 안전한 이유를 말할 수 있어요.',
+      text: '파일 이름에 내용 해시를 넣을 때만 immutable로 길게 캐시해도 안전한 이유를 말할 수 있어요.',
     },
     {
       id: 'origin-load',
@@ -38,7 +38,7 @@ export const module: StudyModule = {
     },
     {
       id: 'lcp-loading',
-      text: 'LCP 이미지에 lazy 를 쓰면 안 되는 이유와 fetchpriority 를 쓸 자리를 고를 수 있어요.',
+      text: 'LCP 이미지에 lazy를 쓰면 안 되는 이유와 fetchpriority를 쓸 자리를 고를 수 있어요.',
     },
   ],
   sources: [
@@ -75,7 +75,7 @@ export const module: StudyModule = {
       url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Content_negotiation',
     },
     {
-      title: 'RFC 9111 — HTTP Caching (4.1 Vary 로 캐시 키 계산)',
+      title: 'RFC 9111 — HTTP Caching (4.1 Vary로 캐시 키 계산)',
       url: 'https://www.rfc-editor.org/rfc/rfc9111.html',
     },
     {
