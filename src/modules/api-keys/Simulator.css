@@ -1,0 +1,57 @@
+.ak-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.ak-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.ak-lab__result {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.ak-lab__metrics {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ak-lab__metric {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+}
+.ak-lab__metric-label {
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.ak-lab__metric-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.ak-lab__metric-value[data-leaks='yes'],
+.ak-lab__metric-value[data-fail='yes'] {
+  color: var(--color-accent-700);
+}
+.ak-lab__notes {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding-left: var(--space-4);
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.ak-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
