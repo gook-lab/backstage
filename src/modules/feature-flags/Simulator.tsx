@@ -1,15 +1,6 @@
 import { RadioGroup } from '@gook-lab/ui';
 import { useMemo, useState } from 'react';
-import {
-  type Assignment,
-  countFlipUsers,
-  MAX_LAG,
-  type Mode,
-  type Params,
-  simulate,
-  USER_COUNT,
-  VISITS,
-} from './model';
+import { type Assignment, countFlipUsers, MAX_LAG, type Mode, simulate, USER_COUNT, VISITS } from './model';
 import './Simulator.css';
 
 const MODE_OPTIONS: readonly { value: Mode; label: string; hint: string }[] = [
@@ -37,8 +28,7 @@ export default function Simulator() {
   const [mode, setMode] = useState<Mode>('server');
   const [assignment, setAssignment] = useState<Assignment>('hash');
 
-  const params: Params = { ratio, lag, mode, assignment };
-  const result = useMemo(() => simulate(params), [ratio, lag, mode, assignment]);
+  const result = useMemo(() => simulate({ ratio, lag, mode, assignment }), [ratio, lag, mode, assignment]);
   const flips = useMemo(
     () => ({ hash: countFlipUsers('hash', ratio), random: countFlipUsers('random', ratio) }),
     [ratio],
