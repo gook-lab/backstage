@@ -1,0 +1,127 @@
+.ob-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.ob-lab__causes {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.ob-lab__panel {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.ob-lab__panel h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.ob-lab__stats {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.ob-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.9375rem;
+}
+.ob-lab__hint code {
+  overflow-wrap: anywhere;
+  font-size: 0.875rem;
+}
+
+.ob-wf {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+.ob-wf__row {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) 5.5rem;
+  align-items: center;
+  gap: var(--space-2);
+}
+.ob-wf__name {
+  min-width: 0;
+  padding-left: calc(var(--depth, 0) * var(--space-3));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ob-wf__track {
+  position: relative;
+  height: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-divider);
+}
+.ob-wf__bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: var(--radius-sm);
+  background: var(--color-neutral-700);
+}
+.ob-wf__row[data-kind='external'] .ob-wf__bar {
+  background: var(--color-accent);
+}
+.ob-wf__row[data-longest='true'] .ob-wf__name,
+.ob-wf__row[data-longest='true'] .ob-wf__ms {
+  font-weight: 700;
+}
+.ob-wf__ms {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.ob-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+}
+.ob-table th,
+.ob-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: right;
+}
+.ob-table th:first-child,
+.ob-table tbody th {
+  text-align: left;
+  font-weight: 500;
+}
+
+.ob-hist {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 7rem;
+  padding-top: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+}
+.ob-hist__bar {
+  flex: 1 1 0;
+  min-height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: var(--color-neutral-700);
+}
+.ob-hist__bar[data-tail='true'] {
+  background: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .ob-wf__row {
+    grid-template-columns: minmax(0, 1fr) 4.5rem;
+  }
+  .ob-wf__track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
