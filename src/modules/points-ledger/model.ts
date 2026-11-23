@@ -125,7 +125,7 @@ export function simulate(p: Params): Result {
     }
 
     if (day === p.useDay) {
-      // 만료 임박 순(FIFO). 같은 만료일이면 묶음 순서를 따라요. sort 는 안정 정렬이에요
+      // 만료 임박 순. 같은 만료일이면 묶음 순서를 따라요. sort 는 안정 정렬이에요
       const order = lots.filter((l) => l.remaining > 0).sort((a, b) => a.expiresDay - b.expiresDay);
       const available = order.reduce((sum, l) => sum + l.remaining, 0);
       if (available < p.useAmount) {
