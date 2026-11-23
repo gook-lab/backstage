@@ -27,7 +27,7 @@ export const module: StudyModule = {
     },
     {
       id: 'single-runner',
-      text: '같은 배치가 두 번 동시에 돌지 않도록 잠그는 방법(advisory lock 이나 SKIP LOCKED)을 고르고, 이유를 말할 수 있어요.',
+      text: '같은 배치가 두 번 동시에 돌지 않도록 잠그는 방법(advisory lock이나 SKIP LOCKED)을 고르고, 이유를 말할 수 있어요.',
     },
     {
       id: 'integer-money',

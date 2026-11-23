@@ -91,7 +91,7 @@ export default function Simulator() {
         />
         <Checkbox
           label="같은 배치가 두 번 돌지 않게 잠가요"
-          hint="잠금을 잡은 실행이 있으면 두 번째 실행은 시작하지 않아요."
+          hint="락을 잡은 실행이 있으면 두 번째 실행은 시작하지 않아요."
           checked={lock}
           onCheckedChange={(v) => setLock(v === true)}
         />
