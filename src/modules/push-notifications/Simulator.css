@@ -1,0 +1,52 @@
+.pn-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.pn-lab__hint,
+.pn-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.pn-lab__note {
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.pn-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.pn-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.pn-field input[type='range'] {
+  width: 100%;
+}
+.pn-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.pn-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.pn-table caption {
+  margin-bottom: var(--space-2);
+  color: var(--color-neutral-700);
+  text-align: left;
+}
+.pn-table th,
+.pn-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+  vertical-align: top;
+}
+.pn-table td {
+  font-variant-numeric: tabular-nums;
+}
