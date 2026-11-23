@@ -1,0 +1,92 @@
+.gs-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.gs-lab__hint,
+.gs-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.gs-lab__foot {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.gs-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.gs-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.gs-field input[type='range'] {
+  width: 100%;
+}
+.gs-lab__seed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-neutral-800);
+}
+.gs-lab__map {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.gs-lab__map h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.gs-map {
+  width: 100%;
+  max-width: 300px;
+  justify-self: center;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--color-divider);
+}
+.gs-map__dot {
+  fill: var(--color-neutral-700);
+  fill-opacity: 0.35;
+}
+.gs-map__shown {
+  fill: var(--color-accent);
+}
+.gs-map__group {
+  fill: var(--color-accent);
+  fill-opacity: 0.5;
+}
+.gs-map__cell {
+  fill: var(--color-accent);
+  fill-opacity: 0.08;
+  stroke: var(--color-divider);
+  stroke-width: 0.5;
+}
+.gs-map__view {
+  fill: none;
+  stroke: var(--color-neutral-800);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+}
+.gs-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.gs-lab__alarm {
+  margin: 0;
+  padding: var(--space-3);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg);
+  font-size: 0.9375rem;
+}
