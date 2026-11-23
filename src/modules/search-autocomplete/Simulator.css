@@ -1,0 +1,101 @@
+.sa-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.sa-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.sa-field input[type='text'] {
+  max-width: 24rem;
+}
+.sa-field input[type='range'] {
+  width: 100%;
+}
+.sa-field small,
+.sa-lab__note {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.sa-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.sa-lab__seed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-neutral-800);
+}
+.sa-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.sa-lab__verdict {
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+}
+.sa-lab__verdict[data-correct='no'] {
+  color: var(--color-accent);
+}
+.sa-lab__timeline {
+  display: grid;
+  gap: var(--space-2);
+}
+.sa-lab__timeline h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.sa-timeline {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.sa-timeline line {
+  stroke: var(--color-neutral-700);
+  stroke-width: 1.5;
+}
+.sa-timeline__key {
+  stroke-dasharray: 2 2;
+}
+.sa-timeline circle {
+  fill: var(--color-neutral-700);
+}
+.sa-timeline__row--stale-shown line,
+.sa-timeline__row--stale-shown circle {
+  stroke: var(--color-accent);
+  fill: var(--color-accent);
+}
+.sa-timeline__row--cancelled line {
+  stroke-dasharray: 3 3;
+  opacity: 0.6;
+}
+.sa-lab__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.sa-lab__table caption {
+  text-align: left;
+  color: var(--color-neutral-800);
+  padding-bottom: var(--space-2);
+}
+.sa-lab__table th,
+.sa-lab__table td {
+  padding: var(--space-1) var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+}
+.sa-lab__table tr[data-status='stale-shown'] td:last-child {
+  color: var(--color-accent);
+  font-weight: 700;
+}
