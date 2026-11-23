@@ -1,0 +1,32 @@
+.ov {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+.ov-title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+.ov-hint,
+.ov-note {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.ov-controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  min-width: 0;
+}
+.ov-stats {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.ov-summary {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
