@@ -1,0 +1,73 @@
+.pl-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.pl-group {
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+}
+.pl-lots {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.pl-lot {
+  display: grid;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+}
+.pl-controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.pl-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.pl-field input[type='range'] {
+  width: 100%;
+}
+.pl-hint,
+.pl-note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.pl-results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.pl-alarm {
+  margin: 0;
+  padding: var(--space-3);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg);
+  font-size: 0.9375rem;
+}
+.pl-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.pl-table caption {
+  margin-bottom: var(--space-2);
+  color: var(--color-neutral-700);
+  text-align: left;
+}
+.pl-table th,
+.pl-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+}
+.pl-table td {
+  font-variant-numeric: tabular-nums;
+}
+.pl-ledger__future {
+  color: var(--color-neutral-700);
+}
