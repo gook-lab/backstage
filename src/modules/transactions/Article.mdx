@@ -74,7 +74,7 @@ WHERE id = 1 AND version = 3;
 -- 영향받은 행 수가 0 이면 누군가 먼저 고쳤어요
 ```
 
-HTTP 에서는 두 가지 응답으로 나타나요. 둘 다 RFC 9110에 정의돼 있어요.
+HTTP에서는 두 가지 응답으로 나타나요. 둘 다 RFC 9110에 정의돼 있어요.
 
 서버가 조회 응답에 ETag를 붙이고, 수정 요청에서 If-Match로 그 값을 돌려받는 방식이에요.
 
@@ -117,7 +117,7 @@ Content-Type: application/json
 | PostgreSQL   | READ COMMITTED  | FOR UPDATE가 없는 SELECT는 문장 시작 전에 커밋된 데이터만 봐요 |
 | MySQL InnoDB | REPEATABLE READ | 기본 격리 수준이 PostgreSQL과 달라요                           |
 
-격리 수준을 올린다고 read-modify-write 문제가 자동으로 해결되지는 않아요. PostgreSQL의 REPEATABLE READ 에서는 같은 행을 먼저 바꾼 트랜잭션이 커밋되면, 나중 트랜잭션이 `could not serialize access due to concurrent update` 오류로 실패해요. 그래서 격리 수준을 올리면 재시도 경로도 같이 준비해야 해요.
+격리 수준을 올린다고 read-modify-write 문제가 자동으로 해결되지는 않아요. PostgreSQL의 REPEATABLE READ에서는 같은 행을 먼저 바꾼 트랜잭션이 커밋되면, 나중 트랜잭션이 `could not serialize access due to concurrent update` 오류로 실패해요. 그래서 격리 수준을 올리면 재시도 경로도 같이 준비해야 해요.
 
 ## 데드락 — 서로 반대 순서로 잠글 때
 
