@@ -1,0 +1,65 @@
+.um-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.um-lab__hint,
+.um-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.um-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.um-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.um-field input[type='range'] {
+  width: 100%;
+}
+.um-lab__toggles {
+  display: grid;
+  gap: var(--space-2);
+}
+.um-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.um-lab__alarm {
+  margin: 0;
+  color: var(--color-neutral-900);
+  font-weight: 600;
+}
+.um-lab__billing {
+  display: grid;
+  gap: var(--space-2);
+}
+.um-lab__billing h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.um-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.um-table caption {
+  text-align: left;
+  color: var(--color-neutral-700);
+  padding-bottom: var(--space-1);
+}
+.um-table th,
+.um-table td {
+  padding: var(--space-2) var(--space-1);
+  border-bottom: 1px solid var(--color-neutral-300);
+  text-align: left;
+}
+.um-table td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
