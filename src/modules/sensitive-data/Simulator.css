@@ -1,0 +1,63 @@
+.sd-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.sd-lab__group {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+}
+.sd-lab__group legend {
+  padding: 0 var(--space-2);
+  font-weight: 700;
+}
+.sd-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.sd-lab__result {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.sd-lab__verdict {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.sd-lab__verdict[data-verdict='leak'] {
+  color: var(--color-accent);
+}
+.sd-lab__kept {
+  color: var(--color-neutral-800);
+  font-weight: 400;
+}
+.sd-lab__table-wrap {
+  overflow-x: auto;
+}
+.sd-lab__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.sd-lab__table th,
+.sd-lab__table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+  vertical-align: top;
+}
+.sd-lab__table td[data-empty='true'] {
+  color: var(--color-neutral-800);
+}
+.sd-lab__response h3 {
+  margin: 0 0 var(--space-1);
+  font-size: 1rem;
+}
