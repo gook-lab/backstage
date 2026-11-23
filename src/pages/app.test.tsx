@@ -23,9 +23,9 @@ describe('로드맵', () => {
 });
 
 describe('판단 기준 체크', () => {
-  const withChecklist = MODULES.find((m) => m.checklist.length > 0);
-  it.skipIf(!withChecklist)('체크하면 로드맵 진행 수가 늘고 새로 열어도 남는다', async () => {
-    const m = withChecklist!;
+  it('체크하면 로드맵 진행 수가 늘고 새로 열어도 남는다', async () => {
+    const m = MODULES.find((x) => x.checklist.length > 0);
+    if (!m) throw new Error('체크리스트가 있는 모듈이 없어요');
     const { unmount } = renderAt(`/m/${m.id}`);
     await userEvent.click(await screen.findByLabelText(m.checklist[0].text));
     unmount();
