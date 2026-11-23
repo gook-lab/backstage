@@ -1,0 +1,64 @@
+.ab-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.ab-lab__hint,
+.ab-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.ab-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.ab-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.ab-field input[type='range'] {
+  width: 100%;
+}
+.ab-lab__seed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-neutral-800);
+}
+.ab-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+.ab-lab__chart h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+}
+.ab-z {
+  width: 100%;
+  height: 120px;
+  overflow: visible;
+}
+.ab-z__line {
+  stroke: var(--color-neutral-700);
+  stroke-dasharray: 4 4;
+  stroke-width: 1;
+}
+.ab-z__zero {
+  stroke: var(--color-neutral-400);
+  stroke-width: 1;
+}
+.ab-z__path {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.ab-z__hit {
+  fill: var(--color-accent);
+}
