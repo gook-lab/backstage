@@ -9,13 +9,13 @@ export const module: StudyModule = {
   question:
     '관리자 화면에서 "정산 실행"을 눌렀는데 몇 분째 돌고 있어요. 이런 작업은 서버에서 어떻게 돌아가고, 화면은 무엇을 보여 줘야 할까요?',
   summary:
-    '요청 안에서 끝낼 수 없는 긴 작업은 작업 리소스로 만들어 202 로 받고, 상태를 따로 조회해요. 대량 처리는 청크로 나눠 체크포인트를 남기고, 재실행해도 결과가 같도록 멱등하게 짜고, 두 번 동시에 돌지 않게 잠가요.',
+    '요청 안에서 끝낼 수 없는 긴 작업은 작업 리소스로 만들어 202로 받고, 상태를 따로 조회해요. 대량 처리는 청크로 나눠 체크포인트를 남기고, 재실행해도 결과가 같도록 멱등하게 짜고, 두 번 동시에 돌지 않게 잠가요.',
   minutes: 22,
   tags: ['배치', '멱등성', '동시성', '정산', '202'],
   checklist: [
     {
       id: 'job-resource',
-      text: '긴 작업을 요청 안에서 기다리지 않고, 작업 리소스를 만들어 202 와 상태 조회 주소로 응답하는 흐름을 설명할 수 있어요.',
+      text: '긴 작업을 요청 안에서 기다리지 않고, 작업 리소스를 만들어 202와 상태 조회 주소로 응답하는 흐름을 설명할 수 있어요.',
     },
     {
       id: 'chunk-checkpoint',
@@ -48,11 +48,11 @@ export const module: StudyModule = {
       url: 'https://www.postgresql.org/docs/current/explicit-locking.html',
     },
     {
-      title: 'PostgreSQL 문서 — 시스템 관리 함수 (pg_try_advisory_lock 은 기다리지 않고 false 를 돌려줘요)',
+      title: 'PostgreSQL 문서 — 시스템 관리 함수 (pg_try_advisory_lock은 기다리지 않고 false를 돌려줘요)',
       url: 'https://www.postgresql.org/docs/current/functions-admin.html',
     },
     {
-      title: 'PostgreSQL 문서 — SELECT (FOR UPDATE SKIP LOCKED 와 불일치 조회)',
+      title: 'PostgreSQL 문서 — SELECT (FOR UPDATE SKIP LOCKED와 불일치 조회)',
       url: 'https://www.postgresql.org/docs/current/sql-select.html',
     },
     {

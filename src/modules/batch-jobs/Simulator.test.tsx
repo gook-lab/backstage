@@ -14,7 +14,7 @@ describe('배치 작업 시뮬레이터', () => {
 
     expect(within(results).getByText('중복 정산 건수')).toBeInTheDocument();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
-    expect(screen.getByText(/틱 \d+ 에 워커가 죽었어요\. 건 500 부터 다시 시작했어요\./)).toBeInTheDocument();
+    expect(screen.getByText(/틱 \d+에 워커가 죽었어요\. 건 500부터 다시 시작했어요\./)).toBeInTheDocument();
   });
 
   it('멱등 처리를 끄면 커밋 전 부분이 중복 정산되고 경고가 떠요', async () => {

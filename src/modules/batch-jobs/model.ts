@@ -18,7 +18,7 @@ export interface Params {
   readonly chunk: number;
   /** 중간 실패를 일으킬지 */
   readonly crash: boolean;
-  /** 실패 지점: 정산 대상의 몇 % 를 처리한 뒤 워커가 죽는지 (0 초과 100 이하) */
+  /** 실패 지점: 정산 대상의 몇 %를 처리한 뒤 워커가 죽는지 (0 초과 100 이하) */
   readonly crashPct: number;
   readonly restart: Restart;
   /** 이미 정산된 건을 건너뛰는지 (멱등 처리) */

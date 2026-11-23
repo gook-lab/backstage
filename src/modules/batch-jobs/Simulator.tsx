@@ -158,7 +158,7 @@ export default function Simulator() {
         <p className="bj-lab__note">
           {result.crashTick === null
             ? '실패 없이 끝났어요.'
-            : `틱 ${result.crashTick} 에 워커가 죽었어요. 건 ${result.resumeFrom} 부터 다시 시작했어요.`}
+            : `틱 ${result.crashTick}에 워커가 죽었어요. 건 ${result.resumeFrom}부터 다시 시작했어요.`}
         </p>
       </section>
 
