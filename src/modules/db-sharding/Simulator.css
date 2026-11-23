@@ -1,0 +1,117 @@
+.sh-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.sh-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.sh-lab__range {
+  display: grid;
+  gap: var(--space-2);
+  font-size: 0.9375rem;
+}
+.sh-lab__range input:disabled {
+  opacity: 0.5;
+}
+.sh-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.sh-lab__result {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.sh-lab__verdict {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.sh-lab__verdict[data-targeted='false'] {
+  color: var(--color-accent);
+}
+.sh-lab__stats {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin: 0;
+}
+.sh-lab__stats div {
+  display: grid;
+  gap: var(--space-1);
+}
+.sh-lab__stats dt {
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+}
+.sh-lab__stats dd {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.sh-lab__shards,
+.sh-lab__reshard,
+.sh-lab__links-block {
+  display: grid;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-divider);
+}
+.sh-lab__shards h3,
+.sh-lab__reshard h3,
+.sh-lab__links-block h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.sh-lab__shards ul {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sh-lab__shards li {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr 4.5rem;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+}
+.sh-lab__shards li[data-hot='true'] .sh-lab__shard-name {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+.sh-lab__bar {
+  display: block;
+  height: 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-divider);
+  overflow: hidden;
+}
+.sh-lab__bar > span {
+  display: block;
+  height: 100%;
+  background: var(--color-neutral-700);
+}
+.sh-lab__shards li[data-hot='true'] .sh-lab__bar > span {
+  background: var(--color-accent);
+}
+.sh-lab__count {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.sh-lab__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
