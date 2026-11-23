@@ -5,6 +5,32 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { globSync } from 'node:fs';
 
 const PARTICLES = [
+  // 겹조사를 먼저 둬야 짧은 조사보다 길게 맞는다
+  '에서는',
+  '에서도',
+  '에서만',
+  '에게는',
+  '으로는',
+  '으로도',
+  '으로만',
+  '까지는',
+  '까지도',
+  '부터는',
+  '처럼은',
+  '에는',
+  '에도',
+  '에만',
+  '로는',
+  '로도',
+  '로만',
+  '와는',
+  '과는',
+  '와도',
+  '과도',
+  '이라도',
+  '라도',
+  '이라서',
+  '라서',
   '이에요',
   '예요',
   '이라고',
@@ -42,7 +68,7 @@ const PARTICLES = [
   '도',
   '만',
 ];
-const BEFORE = String.raw`[A-Za-z0-9)\]\`'"%+]`;
+const BEFORE = String.raw`[A-Za-z0-9)\]\`'"%+\u0370-\u03FF]`;
 const AFTER = String.raw`(?=[\s.,)!?:;·|]|$)`;
 const RE = new RegExp(`(${BEFORE}) +(${PARTICLES.join('|')})${AFTER}`, 'gm');
 
