@@ -1,0 +1,85 @@
+.rf-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.rf-section {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.rf-section h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.rf-hint,
+.rf-note,
+.rf-footnote {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.rf-footnote {
+  color: var(--color-neutral-700);
+  font-size: 0.875rem;
+}
+.rf-controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.rf-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.rf-field input[type='range'] {
+  width: 100%;
+}
+.rf-field small {
+  color: var(--color-neutral-700);
+}
+.rf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.rf-table caption {
+  margin-bottom: var(--space-2);
+  text-align: left;
+  color: var(--color-neutral-800);
+}
+.rf-table th,
+.rf-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: right;
+}
+.rf-table th[scope='row'],
+.rf-table thead th:first-child {
+  text-align: left;
+}
+.rf-results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.rf-steps {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding-left: var(--space-4);
+  font-size: 0.9375rem;
+}
+.rf-steps__after {
+  color: var(--color-neutral-800);
+}
+.rf-alarm {
+  margin: 0;
+  padding: var(--space-3);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg);
+  font-size: 0.9375rem;
+}
