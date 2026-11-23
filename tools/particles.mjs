@@ -80,7 +80,7 @@ function transform(text) {
       if (i % 2 === 1) return part;
       return part
         .split(/(`[^`\n]*`)/)
-        .map((seg, j, all) => {
+        .map((seg, j) => {
           if (j % 2 === 1) return seg;
           // 인라인 코드 바로 뒤 조각은 앞 글자가 백틱이므로 경계 문자를 붙여 검사한다
           const prev = j > 0 ? '`' : '';
