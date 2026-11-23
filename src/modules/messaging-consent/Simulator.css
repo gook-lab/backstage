@@ -1,0 +1,49 @@
+.mc-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.mc-lab__hint,
+.mc-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.mc-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.mc-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.mc-lab__items {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mc-lab__item {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+}
+.mc-lab__item--blocked {
+  background: var(--color-neutral-100);
+}
+.mc-lab__item-label {
+  color: var(--color-neutral-900);
+  font-weight: 600;
+}
+.mc-lab__item-status {
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+}
+.mc-lab__item-reason {
+  color: var(--color-neutral-900);
+}
