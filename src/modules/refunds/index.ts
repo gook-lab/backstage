@@ -34,7 +34,7 @@ export const module: StudyModule = {
     },
     {
       id: 'failure-path',
-      text: '환불 실패를 같은 키로 재시도할 실패와 손님에게 알릴 실패로 나눠 처리할 수 있어요.',
+      text: '환불 실패를 같은 키로 재시도할 실패와 사용자에게 알릴 실패로 나눠 처리할 수 있어요.',
     },
   ],
   sources: [
