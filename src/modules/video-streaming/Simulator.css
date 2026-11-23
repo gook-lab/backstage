@@ -1,0 +1,67 @@
+.vs-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.vs-lab__controls {
+  display: grid;
+  gap: var(--space-2);
+}
+.vs-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.vs-lab__result {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.vs-lab__verdict {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.vs-lab__verdict[data-stalled='no'] {
+  color: var(--color-accent);
+}
+.vs-lab__stats {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin: 0;
+}
+.vs-lab__stats div {
+  display: grid;
+  gap: 2px;
+}
+.vs-lab__stats dt {
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+}
+.vs-lab__stats dd {
+  margin: 0;
+  font-weight: 700;
+}
+.vs-lab__table-wrap {
+  overflow-x: auto;
+}
+.vs-lab__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.vs-lab__table caption {
+  padding: 0 0 var(--space-2);
+  color: var(--color-neutral-800);
+  text-align: left;
+}
+.vs-lab__table th,
+.vs-lab__table td {
+  padding: var(--space-1) var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+  white-space: nowrap;
+}
