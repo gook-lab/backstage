@@ -1,0 +1,61 @@
+.sl-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.sl-lab__result {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.sl-lab__verdict {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.sl-lab__verdict[data-outcome='compromised'] {
+  color: var(--color-accent);
+}
+.sl-lab__reason {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.sl-lab__steps {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+}
+.sl-lab__step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2);
+  align-items: start;
+}
+.sl-lab__badge {
+  min-width: 3em;
+  padding: 0 var(--space-1);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  color: var(--color-neutral-800);
+  font-size: 0.8125rem;
+  text-align: center;
+}
+.sl-lab__step[data-status='blocked'] .sl-lab__badge {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  font-weight: 700;
+}
+.sl-lab__step[data-status='leak'] .sl-lab__badge {
+  font-weight: 700;
+}
+.sl-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+}
