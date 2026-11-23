@@ -1,0 +1,109 @@
+.sb-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.sb-lab__section {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.sb-lab__section h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.sb-lab__pair {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.sb-lab__hint,
+.sb-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.sb-lab__note {
+  font-size: 0.875rem;
+  color: var(--color-neutral-700);
+}
+.sb-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.sb-field input[type='range'] {
+  width: 100%;
+}
+.sb-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.sb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.sb-table caption {
+  margin-bottom: var(--space-2);
+  color: var(--color-neutral-700);
+  text-align: left;
+}
+.sb-table th,
+.sb-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+}
+.sb-table td {
+  font-variant-numeric: tabular-nums;
+}
+.sb-strip {
+  display: grid;
+  grid-template-columns: repeat(31, minmax(0, 1fr));
+  gap: 2px;
+}
+.sb-strip__cell {
+  height: 14px;
+  border-radius: var(--radius-sm);
+  background: var(--color-neutral-200);
+}
+.sb-strip__cell--past_due {
+  background: var(--color-accent-100);
+}
+.sb-strip__cell--unpaid,
+.sb-strip__cell--canceled {
+  background: var(--color-neutral-400);
+}
+.sb-strip__cell--blocked {
+  background: var(--color-neutral-900);
+}
+.sb-lab__day {
+  display: grid;
+  gap: var(--space-3);
+}
+.sb-lab__now {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin: 0;
+}
+.sb-lab__now dt {
+  color: var(--color-neutral-700);
+  font-size: 0.875rem;
+}
+.sb-lab__now dd {
+  margin: 0;
+}
+.sb-lab__reset {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-neutral-800);
+}
