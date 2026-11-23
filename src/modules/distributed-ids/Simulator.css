@@ -1,0 +1,112 @@
+.di-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.di-lab__hint,
+.di-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.di-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.di-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.di-field input[type='range'] {
+  width: 100%;
+}
+.di-field small {
+  color: var(--color-neutral-700);
+}
+.di-lab__seed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-neutral-800);
+}
+.di-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.di-lab__alarm {
+  margin: 0;
+  padding: var(--space-3);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg);
+  font-size: 0.9375rem;
+}
+.di-lab__hist {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.di-lab__hist h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.di-hist {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.di-hist__row {
+  display: grid;
+  grid-template-columns: minmax(120px, auto) 1fr 3rem;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+}
+.di-hist__track {
+  display: block;
+  height: 10px;
+  border-radius: var(--radius-sm);
+  background: var(--color-neutral-100);
+  overflow: hidden;
+}
+.di-hist__bar {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+}
+.di-hist__value {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.di-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.di-table caption {
+  margin-bottom: var(--space-2);
+  color: var(--color-neutral-700);
+  text-align: left;
+}
+.di-table th,
+.di-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+}
+.di-table td {
+  font-variant-numeric: tabular-nums;
+}
+.di-table__key {
+  font-family: var(--font-mono);
+  word-break: break-all;
+}
