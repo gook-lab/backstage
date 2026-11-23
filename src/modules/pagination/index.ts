@@ -3,6 +3,7 @@ import type { StudyModule } from '../types';
 
 export const module: StudyModule = {
   id: 'pagination',
+  track: 'basics',
   order: 1,
   title: '페이지네이션 — offset · cursor',
   question: '목록 API 가 offset 이면 무엇을 조심해야 하나요?',

@@ -3,6 +3,7 @@ import type { StudyModule } from '../types';
 
 export const module: StudyModule = {
   id: 'transactions',
+  track: 'basics',
   order: 3,
   title: '트랜잭션 · 락 · 데드락',
   question: '두 사람이 동시에 저장하면 무슨 일이 생기나요?',

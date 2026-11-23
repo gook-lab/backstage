@@ -2,7 +2,7 @@ import { Checkbox } from '@gook-lab/ui';
 import { Suspense } from 'react';
 import { Link, useParams } from 'react-router';
 import { toggleCheck, useProgress } from '../lib/progress';
-import { MODULES, moduleById } from '../modules';
+import { moduleById, nextModule } from '../modules';
 import { NotFound } from './NotFound';
 
 export function ModulePage() {
@@ -11,7 +11,7 @@ export function ModulePage() {
   const progress = useProgress();
   if (!m) return <NotFound />;
   const checked = new Set(progress[m.id] ?? []);
-  const next = MODULES.find((x) => x.order > m.order);
+  const next = nextModule(m.id);
   const { Article, Simulator } = m;
   return (
     <article className="module" aria-labelledby="module-title">

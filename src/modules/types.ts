@@ -11,9 +11,13 @@ export interface CheckItem {
   text: string;
 }
 
+/** basics: DB · API 가 일하는 방식. cases: 큰 서비스가 실제로 부딪힌 문제를 기초 위에서 푼다 */
+export type Track = 'basics' | 'cases';
+
 export interface StudyModule {
   id: string;
-  /** 로드맵 순서. 앞 모듈을 알아야 뒤 모듈이 읽힌다 */
+  track: Track;
+  /** 트랙 안 순서. 앞 모듈을 알아야 뒤 모듈이 읽힌다 */
   order: number;
   title: string;
   /** FE 가 실제로 부딪히는 질문 — 로드맵 카드의 첫 줄 */

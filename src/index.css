@@ -152,3 +152,14 @@ h3 {
   gap: var(--space-4);
   margin-top: var(--space-8);
 }
+
+.track {
+  margin-top: var(--space-8);
+}
+.track h2 {
+  margin-bottom: 0;
+}
+.track__desc {
+  margin-top: var(--space-1);
+  color: var(--color-neutral-700);
+}

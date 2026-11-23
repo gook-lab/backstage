@@ -3,6 +3,7 @@ import type { StudyModule } from '../types';
 
 export const module: StudyModule = {
   id: 'n-plus-one',
+  track: 'basics',
   order: 2,
   title: 'N+1 쿼리와 인덱스',
   question: '목록 화면 하나 그리는데 왜 API 가 느릴까요?',
