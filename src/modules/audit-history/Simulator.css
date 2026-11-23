@@ -1,0 +1,61 @@
+.au-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.au-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.au-lab__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.au-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.au-lab__warn {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+.au-lab__panel {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.au-lab__panel h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.au-lab__value {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+.au-lab__value[data-deleted='true'] {
+  color: var(--color-neutral-800);
+  text-decoration: line-through;
+}
+.au-lab__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.au-lab__table th,
+.au-lab__table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+  vertical-align: top;
+}
+.au-lab__table td time {
+  white-space: nowrap;
+}
