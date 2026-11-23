@@ -1,0 +1,67 @@
+.av-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.av-lab__summary {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.av-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.av-field input[type='range'] {
+  width: 100%;
+  accent-color: var(--color-accent);
+}
+.av-lab__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.av-lab__stats {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.av-lab__narration {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+.av-lab h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+}
+.av-lab__note {
+  margin: var(--space-2) 0 0;
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.av-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.av-table th,
+.av-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+.av-table thead th {
+  color: var(--color-neutral-700);
+  font-weight: 600;
+}
+.av-lab__events ol {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding-left: 1.25em;
+  font-size: 0.875rem;
+}
+.av-events__done {
+  color: var(--color-neutral-700);
+}
