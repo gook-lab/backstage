@@ -49,7 +49,7 @@ FE 는 조각 번호와 ETag 를 모아 서버의 완료 API 로 보내요. 서�
 
 서버가 범위 요청을 지원하면 Accept-Ranges: bytes 헤더를 줘요. MDN 은 이 헤더가 있으면 서버가 범위 요청을 지원한다는 뜻이라고 설명해요.
 
-클라이언트가 Range: bytes=500- 같은 헤더를 보내면, 서버는 요청한 범위만 담아 206 Partial Content 로 답하고, Content-Range 헤더로 전체에서 어느 위치인지 알려 줘요. 요청한 범위가 파일 밖이면 416 Range Not Satisfiable 로 답해요. RFC 9110 은 이 상태들을 이렇게 정의해요.
+클라이언트가 `Range: bytes=500-` 같은 헤더를 보내면, 서버는 요청한 범위만 담아 206 Partial Content 로 답하고, Content-Range 헤더로 전체에서 어느 위치인지 알려 줘요. 요청한 범위가 파일 밖이면 416 Range Not Satisfiable 로 답해요. RFC 9110 은 이 상태들을 이렇게 정의해요.
 
 여기서 FE 가 놓치기 쉬운 점이 있어요. RFC 9110 은 서버가 Range 헤더를 무시할 수 있다고 정해요. 그래서 이어받기 코드는 응답 상태가 206 인지 확인해야 해요. 200 으로 전체 본문이 오면 기존 조각 뒤에 붙이면 안 돼요. 처음부터 새로 받는 쪽으로 처리해야 파일이 깨지지 않아요.
 
@@ -57,7 +57,7 @@ FE 는 조각 번호와 ETag 를 모아 서버의 완료 API 로 보내요. 서�
 
 Content-Disposition 헤더는 응답을 브라우저에서 보여 줄지(inline), 내려받을지(attachment) 정해요. MDN 은 attachment 를 받아서 저장하게 하는 값으로, 보통 "다른 이름으로 저장" 창을 띄운다고 설명해요.
 
-파일 이름은 filename 파라미터로 줄 수 있어요. 한글 같은 non-ASCII 이름은 filename* 에 UTF-8 로 인코딩해서 넣어요. MDN 예시는 filename*=UTF-8''file%20name.jpg 형태예요. RFC 6266 은 filename 과 filename\* 을 둘 다 정의해요.
+파일 이름은 filename 파라미터로 줄 수 있어요. 한글 같은 non-ASCII 이름은 `filename*` 에 UTF-8 로 인코딩해서 넣어요. MDN 예시는 `filename*=UTF-8''file%20name.jpg` 형태예요. RFC 6266 은 `filename` 과 `filename*` 을 둘 다 정의해요.
 
 ## 큰 응답 스트리밍 — 전체를 메모리에 모으지 않기
 
