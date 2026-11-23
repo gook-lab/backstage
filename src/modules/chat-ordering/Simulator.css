@@ -1,0 +1,77 @@
+.cho-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.cho-lab__hint,
+.cho-lab__note,
+.cho-lab__footnote {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.9375rem;
+}
+.cho-lab__controls,
+.cho-lab__toggles {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.cho-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.9375rem;
+}
+.cho-lab__stats {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+.cho-lab__views h3,
+.cho-lab__moved h3,
+.cho-lab__notes h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+}
+.cho-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.cho-table caption {
+  margin-bottom: var(--space-2);
+  color: var(--color-neutral-700);
+  text-align: left;
+}
+.cho-table th,
+.cho-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-neutral-200);
+  text-align: left;
+  vertical-align: top;
+}
+.cho-table th[scope='col'] {
+  color: var(--color-neutral-700);
+  font-weight: 600;
+}
+.cho-cell__seq {
+  color: var(--color-neutral-700);
+  font-variant-numeric: tabular-nums;
+}
+.cho-cell__dup {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+.cho-lab__moved ul,
+.cho-lab__notes ul {
+  margin: 0;
+  padding-left: var(--space-4);
+  font-size: 0.9375rem;
+}
+.cho-lab__notes {
+  padding: var(--space-3);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg);
+}
+.cho-lab__actions {
+  display: flex;
+  justify-content: flex-end;
+}
