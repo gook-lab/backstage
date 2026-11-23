@@ -1,5 +1,6 @@
+import { moduleById } from '..';
 import { describe, expect, it } from 'vitest';
-import { type Answers, DEFAULT_ANSWERS, type DataSize, decide, LINK_LABEL, PRESETS, RULES } from './model';
+import { type Answers, DEFAULT_ANSWERS, type DataSize, decide, PRESETS, RULES } from './model';
 
 const DATA_SIZES: readonly DataSize[] = ['small', 'medium', 'large'];
 
@@ -59,7 +60,7 @@ describe('판단 규칙', () => {
   it('규칙에 연결된 모듈은 모두 이름표가 있어요', () => {
     for (const rule of RULES) {
       for (const id of rule.modules) {
-        expect(LINK_LABEL[id], `${rule.id} → ${id}`).toBeDefined();
+        expect(moduleById(id), `${rule.id} → ${id}`).toBeDefined();
       }
     }
   });

@@ -1,15 +1,7 @@
 import { Checkbox, RadioGroup } from '@gook-lab/ui';
+import { moduleById } from '..';
 import { useState } from 'react';
-import {
-  type Answers,
-  DEFAULT_ANSWERS,
-  type DataSize,
-  decide,
-  LINK_LABEL,
-  PRESETS,
-  type Verdict,
-  VERDICT_LABEL,
-} from './model';
+import { type Answers, DEFAULT_ANSWERS, type DataSize, decide, PRESETS, type Verdict, VERDICT_LABEL } from './model';
 import './Simulator.css';
 
 type FlagKey = { [K in keyof Answers]: Answers[K] extends boolean ? K : never }[keyof Answers];
@@ -132,7 +124,7 @@ export default function Simulator() {
             <ul className="sc-lab__links">
               {modules.map((id) => (
                 <li key={id}>
-                  <a href={`/m/${id}`}>{LINK_LABEL[id]}</a>
+                  <a href={`/m/${id}`}>{moduleById(id)?.title ?? id}</a>
                 </li>
               ))}
             </ul>

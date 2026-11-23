@@ -112,20 +112,6 @@ export const VERDICT_LABEL: Record<Verdict, string> = {
   both: '클라이언트가 미리 보여 주고, 서버가 확정해요',
 };
 
-export const LINK_LABEL: Readonly<Record<string, string>> = {
-  pagination: '페이지네이션 — offset · cursor',
-  'n-plus-one': 'N+1 쿼리와 인덱스',
-  transactions: '트랜잭션 · 락 · 데드락',
-  'concert-seats': '콘서트 좌석 선점',
-  'cart-stock': '장바구니와 재고 — 담아 둔 상품이 품절되는 순간',
-  'payment-idempotency': '결제 — 이중 결제 막기',
-  'waiting-room': '가상 대기실 · 처리량 제한',
-  'hot-counters': '좋아요와 조회수 — 인기 글의 숫자가 바로 안 맞는 이유',
-  'cache-stampede': '캐시 스탬피드',
-  'feed-fanout': '피드 팬아웃',
-  'realtime-delivery': '실시간 전달',
-};
-
 export interface Recommendation {
   readonly verdict: Verdict;
   readonly reasons: readonly Rule[];
