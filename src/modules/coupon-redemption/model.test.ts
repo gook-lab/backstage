@@ -48,7 +48,7 @@ describe('총 수량 한도', () => {
 });
 
 describe('예약 · 확정 · 해제', () => {
-  it('결제 실패로 해제된 쿠폰은 수량으로 돌아가 다음 손님이 받아요', () => {
+  it('결제 실패로 해제된 쿠폰은 수량으로 돌아가 다음 사용자가 받아요', () => {
     const r = simulate({ ...base, mode: 'guarded', scenario: 'payment-fail', stock: 1 });
     expect(outcomeOf(r, 0)).toBe('released');
     expect(outcomeOf(r, 1)).toBe('confirmed');
