@@ -19,7 +19,7 @@ describe('같은 시드는 같은 결과를 낸다', () => {
   });
 });
 
-describe('그냥 캐시 — 만료 순간 미스가 전부 DB 로 가요', () => {
+describe('일반 캐시 — 만료 순간 미스가 전부 DB 로 가요', () => {
   it('만료 뒤 DB 응답 시간 동안 들어온 요청 수만큼 DB 조회가 동시에 나가요', () => {
     const result = run('none');
     expect(sumRange(result.dbPerTick, TTL_TICKS, LAT_TICKS)).toBe(50);

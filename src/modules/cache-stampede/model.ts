@@ -3,7 +3,7 @@ export type Strategy = 'none' | 'single-flight' | 'jitter' | 'early' | 'stale';
 export const STRATEGIES: readonly { id: Strategy; label: string; summary: string }[] = [
   {
     id: 'none',
-    label: '그냥 캐시',
+    label: '일반 캐시',
     summary: '키가 없으면 요청마다 DB 에 가요. 만료 순간 기다리던 요청이 모두 DB 로 몰려요.',
   },
   {
