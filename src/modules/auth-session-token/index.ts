@@ -8,17 +8,17 @@ export const module: StudyModule = {
   title: '로그인 유지 — 세션과 토큰',
   question: '액세스 토큰은 어디에 저장하고, 만료되면 어떻게 갱신해야 할까요?',
   summary:
-    '서버 세션과 토큰을 폐기 · 확장성 · 크기로 비교해요. 쿠키 속성, localStorage 의 XSS 위험, 짧은 액세스 토큰과 리프레시 토큰 회전을 보고, 여러 요청이 동시에 401 을 받을 때 갱신을 하나로 묶는 이유를 시뮬레이터로 확인해요.',
+    '서버 세션과 토큰을 폐기 · 확장성 · 크기로 비교해요. 쿠키 속성, localStorage의 XSS 위험, 짧은 액세스 토큰과 리프레시 토큰 회전을 보고, 여러 요청이 동시에 401을 받을 때 갱신을 하나로 묶는 이유를 시뮬레이터로 확인해요.',
   minutes: 25,
   tags: ['인증', '보안', 'API 설계', '쿠키'],
   checklist: [
     {
       id: 'store-choice',
-      text: '액세스 토큰을 localStorage 에 두면 XSS 한 번으로 빠지는 이유를 설명할 수 있어요.',
+      text: '액세스 토큰을 localStorage에 두면 XSS 한 번으로 빠지는 이유를 설명할 수 있어요.',
     },
     {
       id: 'cookie-attrs',
-      text: 'HttpOnly, Secure, SameSite 가 각각 막는 위험을 구분해서 말할 수 있어요.',
+      text: 'HttpOnly, Secure, SameSite가 각각 막는 위험을 구분해서 말할 수 있어요.',
     },
     {
       id: 'session-vs-token',
@@ -30,11 +30,11 @@ export const module: StudyModule = {
     },
     {
       id: 'single-flight',
-      text: '401 을 동시에 받은 요청들이 갱신 요청을 하나로 묶어야 하는 이유를 설명할 수 있어요.',
+      text: '401을 동시에 받은 요청들이 갱신 요청을 하나로 묶어야 하는 이유를 설명할 수 있어요.',
     },
     {
       id: 'status-codes',
-      text: '401 과 403 을 구분해서, 각각 클라이언트가 어떻게 응답해야 하는지 말할 수 있어요.',
+      text: '401과 403을 구분해서, 각각 클라이언트가 어떻게 응답해야 하는지 말할 수 있어요.',
     },
   ],
   sources: [

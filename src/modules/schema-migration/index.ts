@@ -22,7 +22,7 @@ export const module: StudyModule = {
     },
     {
       id: 'ddl-lock',
-      text: 'ALTER TABLE 이 기본으로 잡는 락이 쓰기를 막는 이유를 설명하고, 인덱스를 CONCURRENTLY 로 만들 때의 대가를 말할 수 있어요.',
+      text: 'ALTER TABLE이 기본으로 잡는 락이 쓰기를 막는 이유를 설명하고, 인덱스를 CONCURRENTLY로 만들 때의 대가를 말할 수 있어요.',
     },
     {
       id: 'compat-rules',
@@ -30,7 +30,7 @@ export const module: StudyModule = {
     },
     {
       id: 'sunset-signal',
-      text: 'Deprecation 과 Sunset 헤더가 동작을 바꾸지 않는 신호라는 점을 알고, 옛 버전을 끊는 시점을 측정으로 정할 수 있어요.',
+      text: 'Deprecation과 Sunset 헤더가 동작을 바꾸지 않는 신호라는 점을 알고, 옛 버전을 끊는 시점을 측정으로 정할 수 있어요.',
     },
     {
       id: 'fe-tolerance',
