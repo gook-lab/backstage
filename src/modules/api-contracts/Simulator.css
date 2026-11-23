@@ -1,0 +1,98 @@
+.ac {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+.ac-title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+.ac-hint {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.ac-controls {
+  display: grid;
+  gap: var(--space-3);
+}
+.ac-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  min-width: 0;
+}
+.ac-block {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+.ac-label {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+}
+.ac-code {
+  margin: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-neutral-400);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.8125rem;
+  white-space: pre;
+}
+.ac-issues {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding-left: var(--space-4);
+  color: var(--color-text);
+  font-size: 0.875rem;
+}
+.ac-crash {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+.ac-screen {
+  min-width: 0;
+}
+.ac-rows {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+}
+.ac-row {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: var(--space-2);
+  font-size: 0.9375rem;
+}
+.ac-row dt {
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.ac-row dd {
+  margin: 0;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+.ac-stats {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+}
+.ac-summary {
+  margin: 0;
+  min-height: 3em;
+  color: var(--color-text);
+  font-size: 0.9375rem;
+}
+.ac-foot {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
