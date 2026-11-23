@@ -1,0 +1,135 @@
+.bk-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.bk-lab__summary,
+.bk-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.bk-lab__inputs {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.bk-fields {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: 1fr 1fr;
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+}
+.bk-fields legend {
+  padding: 0 var(--space-1);
+  font-size: 0.875rem;
+  color: var(--color-neutral-800);
+}
+.bk-lab__results,
+.bk-lab__timeline,
+.bk-lab__free {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.bk-lab__results h3,
+.bk-lab__timeline h3,
+.bk-lab__free h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.bk-lab__stats {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.bk-lab__outcomes {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+}
+.bk-lab__outcomes li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+.bk-lab__free ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.bk-lab__free li {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-neutral-700);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+}
+.bk-timeline {
+  display: grid;
+  gap: var(--space-2);
+  position: relative;
+  font-size: 0.8125rem;
+}
+.bk-timeline__axis {
+  position: relative;
+  height: 1.25rem;
+  margin-left: 6rem;
+  color: var(--color-neutral-700);
+}
+.bk-timeline__axis span {
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.bk-timeline__row {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  align-items: center;
+  gap: var(--space-2);
+}
+.bk-timeline__name {
+  color: var(--color-neutral-800);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bk-timeline__track {
+  position: relative;
+  height: 1.25rem;
+  border-left: 1px solid var(--color-divider);
+  border-right: 1px solid var(--color-divider);
+  background: var(--color-neutral-100);
+}
+.bk-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  min-width: 2px;
+  border-radius: var(--radius-md);
+}
+.bk-bar--existing {
+  background: var(--color-neutral-700);
+}
+.bk-bar--ok {
+  background: var(--color-accent-100);
+  border: 1px solid var(--color-accent);
+}
+.bk-bar--double {
+  background: var(--color-accent);
+}
+.bk-bar--rejected {
+  background: transparent;
+  border: 1px dashed var(--color-accent-700);
+}
