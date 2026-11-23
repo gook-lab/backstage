@@ -1,0 +1,112 @@
+.sm-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.sm-lab__hint,
+.sm-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.sm-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.sm-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.sm-field input[type='range'] {
+  width: 100%;
+}
+.sm-field small {
+  color: var(--color-neutral-700);
+}
+.sm-lab__seed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-neutral-800);
+}
+.sm-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.sm-lab__alarm {
+  margin: 0;
+  padding: var(--space-3);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg);
+  font-size: 0.9375rem;
+}
+.sm-lab__bars,
+.sm-lab__timeline {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.sm-lab__bars h3,
+.sm-lab__timeline h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.sm-bars {
+  width: 100%;
+  height: 72px;
+  display: block;
+}
+.sm-bars__bar {
+  fill: var(--color-neutral-600);
+}
+.sm-bars__bar--now {
+  fill: var(--color-accent);
+}
+.sm-lab__now {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin: 0;
+}
+.sm-lab__now div {
+  display: grid;
+  gap: var(--space-1);
+}
+.sm-lab__now dt {
+  font-size: 0.875rem;
+  color: var(--color-neutral-700);
+}
+.sm-lab__now dd {
+  margin: 0;
+  font-size: 1.125rem;
+  font-variant-numeric: tabular-nums;
+}
+.sm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.sm-table caption {
+  text-align: left;
+  padding-bottom: var(--space-2);
+  color: var(--color-neutral-800);
+}
+.sm-table th,
+.sm-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+  vertical-align: top;
+}
+.sm-table td[data-broken='true'] {
+  color: var(--color-accent);
+  font-weight: 600;
+}
