@@ -1,0 +1,113 @@
+.nl-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.nl-lab__row {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: start;
+}
+.nl-lab__fieldset {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.nl-lab__fieldset legend {
+  padding: 0;
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+}
+.nl-lab__range {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.9375rem;
+}
+.nl-lab__range input {
+  width: 100%;
+  accent-color: var(--color-accent);
+}
+.nl-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.9375rem;
+}
+.nl-lab__result {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.nl-lab__verdict {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+.nl-lab__steps {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nl-lab__steps li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+  gap: var(--space-1) var(--space-3);
+  align-items: center;
+  font-size: 0.9375rem;
+}
+.nl-lab__step-label {
+  font-weight: 600;
+}
+.nl-lab__bar-track {
+  display: block;
+  height: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-neutral-100);
+  overflow: hidden;
+}
+.nl-lab__bar {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+}
+.nl-lab__step-ms {
+  grid-column: 2;
+  color: var(--color-neutral-700);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+.nl-lab__table-wrap {
+  overflow-x: auto;
+}
+.nl-lab__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.nl-lab__table caption {
+  padding-bottom: var(--space-2);
+  color: var(--color-neutral-700);
+  font-size: 0.875rem;
+  text-align: left;
+}
+.nl-lab__table th,
+.nl-lab__table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.nl-lab__table th[scope='row'] {
+  text-align: left;
+}
+.nl-lab__table tr[data-selected='true'] th,
+.nl-lab__table tr[data-selected='true'] td {
+  font-weight: 700;
+}
