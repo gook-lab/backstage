@@ -67,7 +67,7 @@ export const module: StudyModule = {
       url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Conditional_requests',
     },
     {
-      title: 'PostgreSQL 문서 — 13.2.2 Read Committed Isolation Level',
+      title: 'PostgreSQL 문서 — 13.2.1 Read Committed Isolation Level',
       url: 'https://www.postgresql.org/docs/current/transaction-iso.html',
     },
     {
