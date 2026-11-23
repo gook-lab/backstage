@@ -38,7 +38,7 @@ export function ModulePage() {
           <ul>
             {m.checklist.map((c) => (
               <li key={c.id}>
-                <Checkbox label={c.text} checked={checked.has(c.id)} onChange={() => toggleCheck(m.id, c.id)} />
+                <Checkbox label={c.text} checked={checked.has(c.id)} onCheckedChange={() => toggleCheck(m.id, c.id)} />
               </li>
             ))}
           </ul>
