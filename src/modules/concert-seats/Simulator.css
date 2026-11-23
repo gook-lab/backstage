@@ -1,0 +1,109 @@
+.cs-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.cs-lab__summary {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.cs-lab__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: var(--space-3) var(--space-4);
+}
+.cs-field {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 220px;
+  flex: 1 1 220px;
+  font-size: 0.875rem;
+}
+.cs-field input[type='range'] {
+  width: 100%;
+  accent-color: var(--color-accent);
+}
+.cs-check {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+}
+.cs-lab__stats {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.cs-lab h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+}
+.cs-seats {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cs-seat {
+  display: grid;
+  gap: 2px;
+  align-content: center;
+  min-height: 72px;
+  padding: var(--space-2);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.8125rem;
+}
+.cs-seat__no {
+  font-weight: 700;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+.cs-seat__who {
+  color: var(--color-neutral-700);
+  font-size: 0.75rem;
+}
+.cs-seat--held {
+  border-color: var(--color-accent);
+  background: var(--color-accent-100);
+  color: var(--color-accent-700);
+}
+.cs-seat--sold {
+  border-color: var(--color-neutral-700);
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-800);
+}
+
+.cs-lab__scrub {
+  display: grid;
+  gap: var(--space-2);
+}
+.cs-lab__narration {
+  margin: 0;
+  padding: var(--space-3);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg);
+  font-size: 0.9375rem;
+}
+.cs-lab__log ol {
+  max-height: 16rem;
+  overflow-y: auto;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+.cs-lab__log li + li {
+  margin-top: var(--space-2);
+}
+.cs-lab__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
