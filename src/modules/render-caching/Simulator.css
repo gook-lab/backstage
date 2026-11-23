@@ -1,0 +1,48 @@
+.rc-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.rc-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+}
+.rc-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.rc-lab__result {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.rc-lab__summary {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.rc-lab__metrics {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  margin: 0;
+}
+.rc-metric {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  background: var(--color-neutral-100);
+}
+.rc-metric dt {
+  color: var(--color-neutral-800);
+  font-size: 0.875rem;
+}
+.rc-metric dd {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
