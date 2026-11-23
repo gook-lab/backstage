@@ -1,0 +1,52 @@
+.cq-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.cq-lab__hint,
+.cq-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.cq-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.cq-field {
+  display: grid;
+  gap: var(--space-1);
+  font-size: 0.875rem;
+}
+.cq-field input[type='range'] {
+  width: 100%;
+}
+.cq-field small {
+  color: var(--color-neutral-700);
+}
+.cq-lab__alarm {
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  color: var(--color-neutral-800);
+  font-weight: 600;
+}
+.cq-lab__reconfirm {
+  display: flex;
+  justify-content: flex-start;
+}
+.cq-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.cq-lab__changes h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+}
+.cq-lab__list {
+  margin: 0;
+  padding-left: var(--space-4);
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+}
