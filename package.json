@@ -15,7 +15,8 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "verify": "pnpm lint && pnpm format:check && pnpm test && pnpm build"
+    "verify": "pnpm lint && pnpm lint:ko && pnpm format:check && pnpm test && pnpm build",
+    "lint:ko": "node tools/particles.mjs"
   },
   "dependencies": {
     "@gook-lab/motion": "^0.2.7",

@@ -8,7 +8,7 @@ export const module: StudyModule = {
   title: '장바구니와 재고 — 담아 둔 상품이 품절되는 순간',
   question: '장바구니에 담아 둔 상품이 결제하려는 순간 품절되는 건 왜일까요?',
   summary:
-    '장바구니는 재고를 잡아 두지 않아요. 언제 재고를 줄일지, 원자적 UPDATE 로 초과 판매를 막는 법, 가격이 바뀐 뒤 결제 응답을 다루는 법까지 정리해요.',
+    '장바구니는 재고를 잡아 두지 않아요. 언제 재고를 줄일지, 원자적 UPDATE로 초과 판매를 막는 법, 가격이 바뀐 뒤 결제 응답을 다루는 법까지 정리해요.',
   minutes: 18,
   tags: ['DB', '동시성', 'HTTP', '장바구니'],
   checklist: [
@@ -47,7 +47,7 @@ export const module: StudyModule = {
       url: 'https://www.postgresql.org/docs/current/transaction-iso.html',
     },
     {
-      title: 'PostgreSQL 문서 — 명시적 락 (FOR UPDATE 와 행 수준 락)',
+      title: 'PostgreSQL 문서 — 명시적 락 (FOR UPDATE와 행 수준 락)',
       url: 'https://www.postgresql.org/docs/current/explicit-locking.html',
     },
     {
@@ -63,7 +63,7 @@ export const module: StudyModule = {
       url: 'https://docs.stripe.com/api/checkout/sessions/create',
     },
     {
-      title: 'MDN — Web Storage API (localStorage 는 브라우저에 남아요)',
+      title: 'MDN — Web Storage API (localStorage는 브라우저에 남아요)',
       url: 'https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API',
     },
     {

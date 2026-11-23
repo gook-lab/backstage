@@ -8,7 +8,7 @@ export const module: StudyModule = {
   title: '복제 지연 — 방금 쓴 글이 안 보여요',
   question: '글을 저장하고 목록으로 돌아왔는데 방금 쓴 글이 없어요. 새로고침하면 보여요. 왜 그럴까요?',
   summary:
-    '주 DB 에 쓴 값이 읽기 복제본에 닿기까지 걸리는 시간을 다뤄요. 비동기 복제 지연, 동기 복제를 켤 때의 비용, 쓴 직후 자기 쓰기를 읽는 다섯 가지 방식, 새로고침 때 값이 뒤로 가는 단조 읽기 문제를 시뮬레이터로 비교해요.',
+    '주 DB에 쓴 값이 읽기 복제본에 닿기까지 걸리는 시간을 다뤄요. 비동기 복제 지연, 동기 복제를 켤 때의 비용, 쓴 직후 자기 쓰기를 읽는 다섯 가지 방식, 새로고침 때 값이 뒤로 가는 단조 읽기 문제를 시뮬레이터로 비교해요.',
   minutes: 20,
   tags: ['복제', '일관성', 'DB', '캐시', 'FE'],
   checklist: [
@@ -18,7 +18,7 @@ export const module: StudyModule = {
     },
     {
       id: 'sync-cost',
-      text: 'synchronous_commit 기본값이 on 이고, remote_apply 는 커밋이 복제본 반영까지 기다리게 해서 지연을 키운다는 것을 말할 수 있어요.',
+      text: 'synchronous_commit 기본값이 on이고, remote_apply는 커밋이 복제본 반영까지 기다리게 해서 지연을 키운다는 것을 말할 수 있어요.',
     },
     {
       id: 'lsn-check',
@@ -47,7 +47,7 @@ export const module: StudyModule = {
       url: 'https://www.postgresql.org/docs/19/runtime-config-wal.html',
     },
     {
-      title: 'PostgreSQL 19 문서 — 통계 뷰 (pg_stat_replication 의 replay_lag)',
+      title: 'PostgreSQL 19 문서 — 통계 뷰 (pg_stat_replication의 replay_lag)',
       url: 'https://www.postgresql.org/docs/19/monitoring-stats.html',
     },
     {

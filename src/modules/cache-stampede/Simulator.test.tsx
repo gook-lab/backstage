@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import Simulator from './Simulator';
 
 describe('캐시 스탬피드 시뮬레이터', () => {
-  it('기본 그냥 캐시는 만료 순간 동시 조회 경고를 띄우고, 요청 병합으로 바꾸면 경고가 사라진다', async () => {
+  it('기본 일반 캐시는 만료 순간 동시 조회 경고를 띄우고, 요청 병합으로 바꾸면 경고가 사라진다', async () => {
     const user = userEvent.setup();
     render(<Simulator />);
 

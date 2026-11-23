@@ -81,7 +81,7 @@ function SpikePart() {
           />
         </label>
         <label className="wr-slider">
-          <span>백엔드 처리 능력 C · 초당 {capacity}건</span>
+          <span>BE 처리 능력 C · 초당 {capacity}건</span>
           <input
             type="range"
             min={50}
@@ -117,7 +117,7 @@ function SpikePart() {
         tone={overloaded ? 'warning' : 'success'}
         title={
           overloaded
-            ? `백엔드 처리 능력 ${capacity}건을 넘는 요청이 ${result.peakLoad}건까지 몰렸어요.`
+            ? `BE 처리 능력 ${capacity}건을 넘는 요청이 ${result.peakLoad}건까지 몰렸어요.`
             : `최고 부하가 처리 능력 ${capacity}건 안에 머물렀어요.`
         }
       />

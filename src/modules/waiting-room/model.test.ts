@@ -25,7 +25,7 @@ describe('트래픽 몰림 — 보호 없음과 대기실', () => {
     expect(r.avgWait).toBe(0);
   });
 
-  it('대기실이 입장 속도를 C 이하로 두면 백엔드 부하가 C 를 넘지 않고 모두 성공한다', () => {
+  it('대기실이 입장 속도를 C 이하로 두면 BE 부하가 C 를 넘지 않고 모두 성공한다', () => {
     const r = runSpike({ users: 1000, capacity: 100, admitPerTick: 100 });
     expect(r.peakLoad).toBeLessThanOrEqual(100);
     expect(r.gaveUp).toBe(0);

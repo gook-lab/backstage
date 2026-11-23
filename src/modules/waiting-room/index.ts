@@ -8,7 +8,7 @@ export const module: StudyModule = {
   title: '가상 대기실 · 처리량 제한',
   question: '티켓 오픈 때 "대기 순번 3,201번"은 어떻게 동작하나요?',
   summary:
-    '예매 서버가 감당할 수 있는 양은 정해져 있어요. 대기실은 순번을 주고 일정한 속도로만 들여보내고, 요청 제한은 요청이 몰리는 모양을 시간 창으로 잘라 막아요. 실패가 나면 Retry-After 와 jitter 로 재시도를 흩어 놓아요.',
+    '예매 서버가 감당할 수 있는 양은 정해져 있어요. 대기실은 순번을 주고 일정한 속도로만 들여보내고, 요청 제한은 요청이 몰리는 모양을 시간 창으로 잘라 막아요. 실패가 나면 Retry-After와 jitter로 재시도를 흩어 놓아요.',
   minutes: 16,
   tags: ['API 설계', 'HTTP', '동시성'],
   checklist: [
@@ -18,7 +18,7 @@ export const module: StudyModule = {
     },
     {
       id: 'admit-rate',
-      text: '대기실 입장 속도 R 을 백엔드 처리 능력 C 이하로 잡아야 하는 이유를 말할 수 있어요.',
+      text: '대기실 입장 속도 R을 BE 처리 능력 C 이하로 잡아야 하는 이유를 말할 수 있어요.',
     },
     {
       id: 'position-vs-eta',
@@ -30,11 +30,11 @@ export const module: StudyModule = {
     },
     {
       id: 'status-codes',
-      text: '429 와 503 을 구분하고, Retry-After 를 따라 다음 요청 시각을 정할 수 있어요.',
+      text: '429와 503을 구분하고, Retry-After를 따라 다음 요청 시각을 정할 수 있어요.',
     },
     {
       id: 'jitter',
-      text: '재시도 간격에 jitter 를 넣는 이유를 설명하고, 지수 백오프와 함께 구현할 수 있어요.',
+      text: '재시도 간격에 jitter를 넣는 이유를 설명하고, 지수 백오프와 함께 구현할 수 있어요.',
     },
   ],
   sources: [

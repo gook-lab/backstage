@@ -8,7 +8,7 @@ export const module: StudyModule = {
   title: '좋아요와 조회수 — 인기 글의 숫자가 바로 안 맞는 이유',
   question: '인기 글의 좋아요 수는 왜 바로 안 맞을까요?',
   summary:
-    '좋아요는 사용자마다 한 번만 세고, 조회수는 근사해도 되는 이벤트로 다뤄요. 한 행에 몰리는 카운터 UPDATE 가 왜 줄을 세우는지, 샤딩과 버퍼링이 무엇을 바꾸는지, 화면에 보이는 숫자가 왜 잠깐 늦는지 정리해요.',
+    '좋아요는 사용자마다 한 번만 세고, 조회수는 근사해도 되는 이벤트로 다뤄요. 한 행에 몰리는 카운터 UPDATE가 왜 줄을 세우는지, 샤딩과 버퍼링이 무엇을 바꾸는지, 화면에 보이는 숫자가 왜 잠깐 늦는지 정리해요.',
   minutes: 20,
   tags: ['DB', '동시성', 'HTTP', '캐시', '카운터'],
   checklist: [
@@ -26,7 +26,7 @@ export const module: StudyModule = {
     },
     {
       id: 'idempotent-toggle',
-      text: 'PUT 으로 상태를 설정하고 DELETE 로 해제하면 재시도와 더블 탭에도 같은 결과가 나온다는 것을 알아요.',
+      text: 'PUT으로 상태를 설정하고 DELETE로 해제하면 재시도와 더블 탭에도 같은 결과가 나온다는 것을 알아요.',
     },
     {
       id: 'read-your-own-write',
@@ -47,7 +47,7 @@ export const module: StudyModule = {
       url: 'https://www.postgresql.org/docs/current/explicit-locking.html',
     },
     {
-      title: 'PostgreSQL 문서 — INSERT 와 ON CONFLICT DO NOTHING',
+      title: 'PostgreSQL 문서 — INSERT와 ON CONFLICT DO NOTHING',
       url: 'https://www.postgresql.org/docs/current/sql-insert.html',
     },
     {

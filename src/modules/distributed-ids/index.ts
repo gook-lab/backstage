@@ -6,9 +6,9 @@ export const module: StudyModule = {
   track: 'cases',
   order: 16,
   title: 'ID 설계 — 자동 증가와 UUID',
-  question: '주문 번호가 1, 2, 3 으로 늘면 안 되나요? 화면에서 임시 ID 를 만들어도 될까요?',
+  question: '주문 번호가 1, 2, 3으로 늘면 안 되나요? 화면에서 임시 ID를 만들어도 될까요?',
   summary:
-    '자동 증가 번호는 빈 번호를 남기고 추측하기 쉬워요. UUID v4 는 무작위라 인덱스 삽입을 흩뜨리고, v7 은 시간 순이에요. 64비트 정수는 JS Number 로 받으면 값이 깨지니 문자열로 받아요. 화면에서 만든 UUID 는 임시 ID 와 멱등 키로 함께 쓸 수 있어요.',
+    '자동 증가 번호는 빈 번호를 남기고 추측하기 쉬워요. UUID v4는 무작위라 인덱스 삽입을 흩뜨리고, v7은 시간 순이에요. 64비트 정수는 JS Number로 받으면 값이 깨지니 문자열로 받아요. 화면에서 만든 UUID는 임시 ID와 멱등성 키로 함께 쓸 수 있어요.',
   minutes: 22,
   tags: ['DB', 'ID', 'UUID', 'API', '인덱스'],
   checklist: [
@@ -18,28 +18,28 @@ export const module: StudyModule = {
     },
     {
       id: 'guessable-not-authz',
-      text: '연속 ID 는 추측을 쉽게 만들고, 무작위 ID 로 바꾸더라도 소유자 검사가 없으면 남의 리소스가 열린다는 것을 설명할 수 있어요.',
+      text: '연속 ID는 추측을 쉽게 만들고, 무작위 ID로 바꾸더라도 소유자 검사가 없으면 남의 리소스가 열린다는 것을 설명할 수 있어요.',
     },
     {
       id: 'uuid-version',
-      text: 'UUID v4 는 무작위, v7 은 시간 순이라는 차이를 알고, 인덱스 삽입 위치가 어떻게 달라지는지 말할 수 있어요.',
+      text: 'UUID v4는 무작위, v7은 시간 순이라는 차이를 알고, 인덱스 삽입 위치가 어떻게 달라지는지 말할 수 있어요.',
     },
     {
       id: 'int64-as-string',
-      text: '2의 53제곱을 넘는 정수 ID 를 JSON 숫자로 받으면 값이 바뀔 수 있어서, 응답에서 ID 를 문자열로 주는 계약을 세울 수 있어요.',
+      text: '2의 53제곱을 넘는 정수 ID를 JSON 숫자로 받으면 값이 바뀔 수 있어서, 응답에서 ID를 문자열로 주는 계약을 세울 수 있어요.',
     },
     {
       id: 'client-generated-id',
-      text: '클라이언트가 만든 UUID 를 임시 ID 로 화면에 쓰고, 같은 값을 멱등 키로 보내 재시도가 중복 생성을 막게 하는 흐름을 설계할 수 있어요.',
+      text: '클라이언트가 만든 UUID를 임시 ID로 화면에 쓰고, 같은 값을 멱등성 키로 보내 재시도가 중복 생성을 막게 하는 흐름을 설계할 수 있어요.',
     },
     {
       id: 'time-ordered-cursor',
-      text: '시간 순 ID 를 커서 페이지네이션의 정렬 키로 쓸 수 있고, 같은 밀리초 안의 순서 문제를 어떻게 다룰지 정할 수 있어요.',
+      text: '시간 순 ID를 커서 페이지네이션의 정렬 키로 쓸 수 있고, 같은 밀리초 안의 순서 문제를 어떻게 다룰지 정할 수 있어요.',
     },
   ],
   sources: [
     {
-      title: 'PostgreSQL 문서 — 시퀀스 함수 (nextval 은 롤백돼도 되돌리지 않아요)',
+      title: 'PostgreSQL 문서 — 시퀀스 함수 (nextval은 롤백돼도 되돌리지 않아요)',
       url: 'https://www.postgresql.org/docs/current/functions-sequence.html',
     },
     {
@@ -51,7 +51,7 @@ export const module: StudyModule = {
       url: 'https://www.postgresql.org/docs/current/ddl-identity-columns.html',
     },
     {
-      title: 'PostgreSQL 문서 — 숫자 자료형 (bigint 범위, serial 의 빈 번호)',
+      title: 'PostgreSQL 문서 — 숫자 자료형 (bigint 범위, serial의 빈 번호)',
       url: 'https://www.postgresql.org/docs/current/datatype-numeric.html',
     },
     {
@@ -63,7 +63,7 @@ export const module: StudyModule = {
       url: 'https://www.rfc-editor.org/rfc/rfc9562',
     },
     {
-      title: 'RFC 8259 — JSON (정수 [-(2^53)+1, (2^53)-1] 의 상호 운용성)',
+      title: 'RFC 8259 — JSON (정수 [-(2^53)+1, (2^53)-1]의 상호 운용성)',
       url: 'https://www.rfc-editor.org/rfc/rfc8259',
     },
     {
@@ -79,7 +79,7 @@ export const module: StudyModule = {
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER',
     },
     {
-      title: 'Stripe API 문서 — Idempotent requests (멱등 키로 V4 UUID 를 권장)',
+      title: 'Stripe API 문서 — Idempotent requests (멱등성 키로 V4 UUID를 권장)',
       url: 'https://docs.stripe.com/api/idempotent_requests',
     },
   ],

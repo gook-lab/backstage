@@ -22,11 +22,11 @@ export const module: StudyModule = {
     },
     {
       id: 'backoff-jitter',
-      text: '재시도 간격을 지수로 늘리고 jitter 를 섞는 이유를, 같은 시각에 몰리는 재시도가 과부하를 키운다는 점과 함께 설명할 수 있어요.',
+      text: '재시도 간격을 지수로 늘리고 jitter를 섞는 이유를, 같은 시각에 몰리는 재시도가 과부하를 키운다는 점과 함께 설명할 수 있어요.',
     },
     {
       id: 'dlq-limit',
-      text: '재시도 한도(maxReceiveCount)를 넘긴 메시지를 DLQ 로 격리하고, DLQ 에 든 메시지가 이미 처리됐을 수도 있다는 것을 알아요.',
+      text: '재시도 한도(maxReceiveCount)를 넘긴 메시지를 DLQ로 격리하고, DLQ에 든 메시지가 이미 처리됐을 수도 있다는 것을 알아요.',
     },
     {
       id: 'visibility-window',

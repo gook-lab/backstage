@@ -97,7 +97,7 @@ export function countHits(query: string): number {
 
 /**
  * 입력 시각 · 응답 지연을 시드로 미리 뽑아요. 전략이나 보호 방식을 바꿔도
- * 같은 손님(같은 타이핑, 같은 네트워크)으로 비교할 수 있게 해요.
+ * 같은 사용자(같은 타이핑, 같은 네트워크)로 비교할 수 있게 해요.
  */
 function drawTimeline(query: string, seed: number) {
   const rnd = mulberry32(seed);

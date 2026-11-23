@@ -18,23 +18,23 @@ export const module: StudyModule = {
     },
     {
       id: 'lock-choice',
-      text: '계산이 한 문장으로 끝나면 원자적 UPDATE 를, 정책 확인이 필요하면 FOR UPDATE 를 고를 수 있어요.',
+      text: '계산이 한 문장으로 끝나면 원자적 UPDATE를, 정책 확인이 필요하면 FOR UPDATE를 고를 수 있어요.',
     },
     {
       id: 'conflict-response',
-      text: '저장 API 가 409 나 412 를 돌려줄 때 FE 가 무엇을 해야 하는지 말할 수 있어요.',
+      text: '저장 API가 409나 412를 돌려줄 때 FE가 무엇을 해야 하는지 말할 수 있어요.',
     },
     {
       id: 'deadlock',
-      text: '데드락이 생기는 조건을 설명하고, 잠금 순서를 맞춰 예방할 수 있어요. 40P01 을 받으면 재시도 대상으로 본다는 것도 알아요.',
+      text: '데드락이 생기는 조건을 설명하고, 락 순서를 맞춰 예방할 수 있어요. 40P01을 받으면 재시도 대상으로 본다는 것도 알아요.',
     },
     {
       id: 'idempotency-key',
-      text: '더블 클릭과 네트워크 재시도에 같은 Idempotency-Key 를 보내야 하는 이유를 설명할 수 있어요.',
+      text: '더블 클릭과 네트워크 재시도에 같은 Idempotency-Key를 보내야 하는 이유를 설명할 수 있어요.',
     },
     {
       id: 'isolation-default',
-      text: '사용 중인 DB 의 기본 격리 수준을 확인하고, 격리 수준을 올려도 read-modify-write 를 앱이 재시도해야 한다는 것을 알아요.',
+      text: '사용 중인 DB의 기본 격리 수준을 확인하고, 격리 수준을 올려도 read-modify-write를 앱이 재시도해야 한다는 것을 알아요.',
     },
   ],
   sources: [
