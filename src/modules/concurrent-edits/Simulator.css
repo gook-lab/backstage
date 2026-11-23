@@ -1,0 +1,47 @@
+.ce-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.ce-lab__hint,
+.ce-lab__note {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.ce-lab__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.ce-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.ce-lab__alarm {
+  margin: 0;
+  padding: var(--space-3);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg);
+  font-size: 0.9375rem;
+}
+.ce-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.ce-table caption {
+  margin-bottom: var(--space-2);
+  color: var(--color-neutral-700);
+  text-align: left;
+}
+.ce-table th,
+.ce-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+  vertical-align: top;
+}
+.ce-table code {
+  font-size: 0.8125rem;
+}
