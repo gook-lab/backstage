@@ -1,0 +1,56 @@
+.dvs-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.dvs-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.9375rem;
+}
+.dvs-lab__result {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.dvs-lab__verdict {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.dvs-lab__verdict[data-broken='true'] {
+  color: var(--color-accent);
+}
+.dvs-lab__reasons {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding-left: var(--space-5);
+  font-size: 0.9375rem;
+}
+.dvs-lab__scroll {
+  overflow-x: auto;
+}
+.dvs-lab__table {
+  width: 100%;
+  min-width: 36rem;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+.dvs-lab__table th,
+.dvs-lab__table td {
+  padding: var(--space-1) var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: right;
+  white-space: nowrap;
+}
+.dvs-lab__table th[scope='row'] {
+  text-align: left;
+}
+.dvs-lab__table td[data-broken='true'] {
+  color: var(--color-accent);
+  font-weight: 700;
+}
