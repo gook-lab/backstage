@@ -1,0 +1,76 @@
+.lf-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.lf-lab__hint,
+.lf-lab__note,
+.lf-lab__access,
+.lf-lab__sort {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.lf-lab__note {
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.lf-lab__controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.lf-lab__results {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.lf-lab__count {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.lf-lab__title {
+  margin: 0;
+  font-size: 1rem;
+}
+.lf-lab__now {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin: 0;
+}
+.lf-lab__now div {
+  display: grid;
+  gap: var(--space-1);
+}
+.lf-lab__now dt {
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.lf-lab__now dd {
+  margin: 0;
+  font-size: 1.125rem;
+  font-variant-numeric: tabular-nums;
+}
+.lf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.lf-table caption {
+  margin-bottom: var(--space-2);
+  color: var(--color-neutral-700);
+  text-align: left;
+}
+.lf-table th,
+.lf-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+}
+.lf-table td {
+  font-variant-numeric: tabular-nums;
+}
