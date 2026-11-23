@@ -102,7 +102,7 @@ export default function Simulator() {
         <p className="ic-lab__hint">
           {choice.width === ORIGINAL_WIDTH
             ? '만들어 둔 변형이 모두 작아서 원본을 받아요. 원본을 줄이는 것과 같아요.'
-            : `원본 ${kb(ORIGINAL_BYTES)} 대신 ${kb(choice.bytes)} 를 받아요. 원본의 ${ratio}% 예요.`}
+            : `원본 ${kb(ORIGINAL_BYTES)} 대신 ${kb(choice.bytes)} 를 받아요. 원본의 ${ratio}% 예요. (크기는 예시 계수로 계산한 값이에요)`}
         </p>
         <dl className="ic-lab__code">
           <dt>srcset</dt>
