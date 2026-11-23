@@ -1,10 +1,14 @@
 import { Tag } from '@gook-lab/ui';
+import { useEffect } from 'react';
 import { Link } from 'react-router';
 import { doneCount, useProgress } from '../lib/progress';
 import { MODULES, TRACKS } from '../modules';
 
 export function Roadmap() {
   const progress = useProgress();
+  useEffect(() => {
+    document.title = 'backstage — FE 가 알아야 할 BE';
+  }, []);
   return (
     <section aria-labelledby="roadmap-title">
       <h1 id="roadmap-title">API 뒤에서 무슨 일이 일어날까요</h1>

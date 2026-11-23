@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryRouter, RouterProvider } from 'react-router';
 import { MODULES } from '../modules';
@@ -10,7 +10,9 @@ const renderAt = (path: string) =>
 describe('로드맵', () => {
   it('모듈을 순서대로 보여 주고 카드를 누르면 글로 간다', async () => {
     renderAt('/');
-    const cards = screen.getAllByRole('link').filter((a) => a.getAttribute('href')?.startsWith('/m/'));
+    const cards = within(screen.getByRole('main'))
+      .getAllByRole('link')
+      .filter((a) => a.getAttribute('href')?.startsWith('/m/'));
     expect(cards.map((a) => a.getAttribute('href'))).toEqual(MODULES.map((m) => `/m/${m.id}`));
     await userEvent.click(cards[0]);
     expect(await screen.findByRole('heading', { level: 1, name: MODULES[0].title })).toBeInTheDocument();
@@ -31,5 +33,37 @@ describe('판단 기준 체크', () => {
     unmount();
     renderAt('/');
     expect(screen.getByLabelText(`판단 기준 ${m.checklist.length}개 중 1개 확인`)).toBeInTheDocument();
+  });
+});
+
+describe('글 목록 · 목차 · 이전/다음', () => {
+  it('왼쪽 목록이 모든 글을 담고 지금 글을 표시한다', async () => {
+    const m = MODULES[1];
+    renderAt(`/m/${m.id}`);
+    const nav = screen.getAllByRole('navigation', { name: '글 목록' })[0];
+    const links = within(nav)
+      .getAllByRole('link')
+      .filter((a) => a.getAttribute('href')?.startsWith('/m/'));
+    expect(links).toHaveLength(MODULES.length);
+    expect(within(nav).getByRole('link', { current: 'page' })).toHaveAttribute('href', `/m/${m.id}`);
+  });
+
+  it('이전 글과 다음 글로 이동할 수 있다', async () => {
+    const m = MODULES[1];
+    renderAt(`/m/${m.id}`);
+    const pager = screen.getByRole('navigation', { name: '이전 글 · 다음 글' });
+    expect(within(pager).getByRole('link', { name: new RegExp(MODULES[0].title) })).toHaveAttribute(
+      'href',
+      `/m/${MODULES[0].id}`,
+    );
+    await userEvent.click(within(pager).getByRole('link', { name: new RegExp(MODULES[2].title) }));
+    expect(await screen.findByRole('heading', { level: 1, name: MODULES[2].title })).toBeInTheDocument();
+  });
+
+  it('글을 불러오면 h2 로 목차를 만든다', async () => {
+    renderAt(`/m/${MODULES[0].id}`);
+    const toc = await screen.findByRole('navigation', { name: '이 글의 목차' });
+    expect(within(toc).getByRole('link', { name: '직접 돌려 보기' })).toHaveAttribute('href', '#lab-title');
+    expect(within(toc).getAllByRole('link').length).toBeGreaterThan(3);
   });
 });
