@@ -1,0 +1,39 @@
+.mt-lab {
+  display: grid;
+  gap: var(--space-4);
+}
+.mt-lab__groups {
+  display: grid;
+  gap: var(--space-4);
+}
+.mt-lab__switches {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.mt-lab__hint {
+  margin: 0;
+  color: var(--color-neutral-800);
+  font-size: 0.9375rem;
+}
+.mt-lab__result {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.mt-lab__verdict {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.mt-lab__verdict[data-leaked='true'] {
+  color: var(--color-accent);
+}
+.mt-lab__impact {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
