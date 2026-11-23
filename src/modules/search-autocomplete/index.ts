@@ -5,7 +5,7 @@ export const module: StudyModule = {
   id: 'search-autocomplete',
   track: 'cases',
   order: 10,
-  title: '검색과 자동완성 — 입력 중 요청을 줄이고 낡은 응답을 막기',
+  title: '검색과 자동완성',
   question: '검색창에 글자를 칠 때마다 요청을 보내도 될까요?',
   summary:
     '키 입력마다 요청을 보내면 서버에 몇 건이 가는지 세어 봐요. 늦게 온 응답이 최신 결과를 덮는 경쟁 상태, 디바운스와 스로틀, LIKE 검색이 인덱스를 못 타는 이유, 자동완성 응답의 캐시와 429 처리까지 정리해요.',
