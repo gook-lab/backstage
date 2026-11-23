@@ -1,0 +1,71 @@
+.ti {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+.ti-title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+.ti-sub {
+  margin: 0 0 var(--space-2);
+  font-size: 0.9375rem;
+}
+.ti-hint,
+.ti-note {
+  margin: 0;
+  color: var(--color-neutral-700);
+  font-size: 0.8125rem;
+}
+.ti-warn {
+  color: var(--color-neutral-800);
+  font-weight: 600;
+}
+.ti-controls {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  min-width: 0;
+}
+.ti-stats {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.ti-panel {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.ti-list {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+}
+.ti-list li {
+  overflow-wrap: anywhere;
+}
+.ti-badge {
+  margin-right: var(--space-2);
+  font-weight: 600;
+}
+.ti-who {
+  margin-right: var(--space-2);
+}
+.ti-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+.ti-table th,
+.ti-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-neutral-200);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.ti-new td {
+  font-weight: 600;
+}
