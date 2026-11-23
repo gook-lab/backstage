@@ -159,6 +159,8 @@ export default function Simulator() {
           바뀌는 날 한 시간 어긋나요.
         </p>
       </section>
+
+      <p className="tl-lab__hint">수치는 감을 잡기 위한 예시예요. 계산은 브라우저의 Intl API로 해요.</p>
     </div>
   );
 }
