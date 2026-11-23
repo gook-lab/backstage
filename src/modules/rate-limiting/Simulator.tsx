@@ -68,8 +68,8 @@ export default function Simulator() {
         요청 제한 놀이터
       </h3>
       <p className="ra-hint">
-        시간은 3초예요. 도착 줄은 서버가 받은 순간이고, 처리 줄은 실제로 처리가 시작된 순간이에요. 누수 버킷은 두 줄이
-        달라요.
+        타임라인은 3초예요. 도착 줄은 서버가 받은 순간이고, 처리 줄은 실제로 처리가 시작된 순간이에요. 누수 버킷은 두
+        줄이 달라요.
       </p>
 
       <RadioGroup label="요청 패턴" options={PATTERN_OPTIONS} value={pattern} onValueChange={setPattern} />
