@@ -70,7 +70,9 @@ SELECT id, body, post_id FROM comments WHERE post_id IN (1, 2, 3, 4, 5, 6, 7, 8,
 const posts = await Post.findAll({ limit: 10, include: ['comments'] });
 ```
 
-옵션 이름은 ORM 마다 달라요. 위 모양은 설명용이에요. 중요한 건 "루프 안에서 관계에 접근하지 않게 바꾸는 것"이에요. SQLAlchemy 문서도 N+1을 줄이는 보통의 방법으로 eager loading을 꼽아요. 다만 어떤 관계를 미리 불러올지는 쿼리를 쓸 때 직접 적어야 해요.
+옵션 이름은 ORM 마다 달라요. 위 모양은 설명용이에요. 중요한 건 "루프 안에서 관계에 접근하지 않게 바꾸는 것"이에요.
+
+SQLAlchemy 문서도 N+1을 줄이는 보통의 방법으로 eager loading을 꼽아요. 다만 어떤 관계를 미리 불러올지는 쿼리를 쓸 때 직접 적어야 해요.
 
 ## FE 쪽 N+1 — 카드마다 요청
 

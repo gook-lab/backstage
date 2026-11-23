@@ -28,19 +28,29 @@ MDN은 모든 인라인 스크립트를 허용하는 `unsafe-inline`이 보안 �
 
 정책에 nonce나 해시가 함께 있으면 `'unsafe-inline'`은 무시돼요. MDN은 지시문에 nonce와 `unsafe-inline`이 함께 있으면 브라우저가 `unsafe-inline`을 무시한다고 설명해요. 해시도 같은 규칙이에요.
 
-그래서 "정책에 `'unsafe-inline'`을 넣었는데도 막혀요"라는 상황이 생겨요. 예전 설정을 남긴 채 nonce만 추가한 정책이 대표적이에요. 이때는 `'unsafe-inline'`을 지우는 편이 맞아요. 문자열에 두 방식이 섞여 있으면 어느 쪽이 적용되는지 헷갈리기 때문이에요.
+그래서 "정책에 `'unsafe-inline'`을 넣었는데도 막혀요"라는 상황이 생겨요. 예전 설정을 남긴 채 nonce만 추가한 정책이 대표적이에요.
+
+이때는 `'unsafe-inline'`을 지우는 편이 맞아요. 문자열에 두 방식이 섞여 있으면 어느 쪽이 적용되는지 헷갈리기 때문이에요.
 
 ### Report-Only — 막기 전에 위반만 모으기
 
-`Content-Security-Policy-Report-Only` 헤더는 정책을 강제하지 않고 위반만 보고해요. MDN은 이 헤더가 정책을 강제하지 않고 위반을 모니터링하게 해 준다고 설명해요. 보고를 받으려면 `report-to` 지시문이 있어야 해요. 없으면 위반 보고가 전송되지 않아요. 보고를 받을 주소는 `Reporting-Endpoints` 헤더로 정해요.
+`Content-Security-Policy-Report-Only` 헤더는 정책을 강제하지 않고 위반만 보고해요. MDN은 이 헤더가 정책을 강제하지 않고 위반을 모니터링하게 해 준다고 설명해요.
 
-새 정책을 바로 `Content-Security-Policy`로 보내면 실제 사용자 화면에서 스크립트가 멈출 수 있어요. MDN은 이 헤더가 정책을 적용하기 전에 위반을 테스트하고 고치게 해 준다고 설명해요. 그래서 먼저 Report-Only로 보내 위반 목록을 모으고, 목록에 맞춰 정책을 고친 뒤 강제 헤더로 바꾸는 순서가 안전해요. 시뮬레이터의 Report-Only 체크를 켜면 같은 자원이 "막힘" 대신 "보고만"으로 바뀌는 것을 볼 수 있어요.
+보고를 받으려면 `report-to` 지시문이 있어야 해요. 없으면 위반 보고가 전송되지 않아요. 보고를 받을 주소는 `Reporting-Endpoints` 헤더로 정해요.
+
+새 정책을 바로 `Content-Security-Policy`로 보내면 실제 사용자 화면에서 스크립트가 멈출 수 있어요. MDN은 이 헤더가 정책을 적용하기 전에 위반을 테스트하고 고치게 해 준다고 설명해요.
+
+그래서 먼저 Report-Only로 보내 위반 목록을 모으고, 목록에 맞춰 정책을 고친 뒤 강제 헤더로 바꾸는 순서가 안전해요.
+
+시뮬레이터의 Report-Only 체크를 켜면 같은 자원이 "막힘" 대신 "보고만"으로 바뀌는 것을 볼 수 있어요.
 
 ## 자원 출처 — 지시문이 없을 때 넘어가는 규칙
 
 정책에 지시문이 모두 있는 것은 아니에요. MDN은 `default-src`가 다른 fetch 지시문의 대체값이라고 설명해요. 또 `script-src`는 `script-src-elem`의 대체값이고, `img-src`가 없으면 `default-src`를 따른다고 설명해요.
 
-이 규칙 때문에 FE가 놓치기 쉬운 상황이 생겨요. `default-src 'self'` 하나만 있는 정책에서는 이미지 CDN 주소도 막혀요. 이미지 CDN을 새로 쓰면서 `img-src`를 추가하지 않으면 그 이미지는 CSP에 막혀요. `fetch`로 분석 이벤트를 보내는 코드도 `connect-src`가 없으면 `default-src`를 따라 막혀요.
+이 규칙 때문에 FE가 놓치기 쉬운 상황이 생겨요. `default-src 'self'` 하나만 있는 정책에서는 이미지 CDN 주소도 막혀요.
+
+이미지 CDN을 새로 쓰면서 `img-src`를 추가하지 않으면 그 이미지는 CSP에 막혀요. `fetch`로 분석 이벤트를 보내는 코드도 `connect-src`가 없으면 `default-src`를 따라 막혀요.
 
 다만 CSP 지시문 이름은 요청 종류별로 나뉘어 있어서, 어떤 지시문을 고쳐야 하는지는 콘솔 오류에 적힌 이름으로 찾아야 해요. 이름을 모르면 기본 정책을 넓히기보다 해당 요청의 종류를 먼저 확인하는 편이 좋아요.
 
@@ -55,7 +65,9 @@ MDN은 모든 인라인 스크립트를 허용하는 `unsafe-inline`이 보안 �
 | `frame-ancestors` | 출처 목록으로 지정해요            | 응답 헤더만 가능해요 | `<meta>`에 넣으면 무시돼요 (CSP3)                 |
 | `X-Frame-Options` | `DENY` 또는 `SAMEORIGIN`만 있어요 | 응답 헤더만 가능해요 | `frame-ancestors`가 있으면 강제 모드에서 무시돼요 |
 
-FE 관점에서는 파트너 사이트가 결제창이나 위젯을 iframe으로 넣어야 할 때 이 헤더가 막는 것을 보게 돼요. 그때는 `frame-ancestors`에 파트너 출처를 넣는 것이 설계 판단이에요. 반대로 로그인 화면이나 결제 확인 화면은 삽입을 막아 클릭재킹을 줄이는 편이 좋아요. OWASP도 `frame-ancestors`를 먼저 쓰고, 안 되면 `X-Frame-Options: DENY`를 쓰라고 권해요.
+FE 관점에서는 파트너 사이트가 결제창이나 위젯을 iframe으로 넣어야 할 때 이 헤더가 막는 것을 보게 돼요. 그때는 `frame-ancestors`에 파트너 출처를 넣는 것이 설계 판단이에요.
+
+반대로 로그인 화면이나 결제 확인 화면은 삽입을 막아 클릭재킹을 줄이는 편이 좋아요. OWASP도 `frame-ancestors`를 먼저 쓰고, 안 되면 `X-Frame-Options: DENY`를 쓰라고 권해요.
 
 ## X-Content-Type-Options — 스크립트 MIME 검사
 
@@ -67,9 +79,15 @@ FE에서 보는 장면은 이래요. 예전 빌드 파일이 CDN에서 `text/pla
 
 HTTP 엄격한 전송 보안 (HSTS)은 브라우저에게 이 호스트에 HTTPS로만 접속하도록 기억하게 하는 헤더예요. RFC 6797은 HTTP로 받은 응답의 HSTS 헤더를 브라우저가 무시해야 한다고 정해요. 그래서 HSTS는 HTTPS 응답으로만 보내야 해요.
 
-`max-age`는 기억할 시간을 초 단위로 정해요. `includeSubDomains`가 있으면 같은 규칙이 서브도메인에도 적용돼요. MDN은 `preload`를 쓰려면 `max-age`가 31536000초(1년) 이상이고 `includeSubDomains`도 있어야 한다고 설명해요. OWASP는 `max-age=63072000; includeSubDomains; preload` 형태를 예로 들면서, 잘못 설정하면 정상 사용자도 접속하지 못할 수 있으니 동작을 먼저 읽어 보라고 설명해요.
+`max-age`는 기억할 시간을 초 단위로 정해요. `includeSubDomains`가 있으면 같은 규칙이 서브도메인에도 적용돼요.
 
-FE가 직접 HSTS를 설정하는 일은 드물어요. 하지만 `includeSubDomains`를 켜면 API 서브도메인이 HTTPS만 쓰게 되어, HTTPS 인증서가 없거나 HTTP로만 도는 서브도메인이 남아 있으면 브라우저가 그 주소에 접속하지 못해요. 시뮬레이터에서 `api.shop.example`을 http로 요청할 때 헤더 옵션에 따라 결과가 어떻게 갈리는지 보세요.
+MDN은 `preload`를 쓰려면 `max-age`가 31536000초(1년) 이상이고 `includeSubDomains`도 있어야 한다고 설명해요.
+
+OWASP는 `max-age=63072000; includeSubDomains; preload` 형태를 예로 들면서, 잘못 설정하면 정상 사용자도 접속하지 못할 수 있으니 동작을 먼저 읽어 보라고 설명해요.
+
+FE가 직접 HSTS를 설정하는 일은 드물어요. 하지만 `includeSubDomains`를 켜면 API 서브도메인이 HTTPS만 쓰게 되어, HTTPS 인증서가 없거나 HTTP로만 도는 서브도메인이 남아 있으면 브라우저가 그 주소에 접속하지 못해요.
+
+시뮬레이터에서 `api.shop.example`을 http로 요청할 때 헤더 옵션에 따라 결과가 어떻게 갈리는지 보세요.
 
 ## Referrer-Policy — 교차 출처 요청의 Referer 값
 
@@ -83,7 +101,9 @@ FE가 직접 HSTS를 설정하는 일은 드물어요. 하지만 `includeSubDoma
 | `strict-origin-when-cross-origin` | 출처만 보내요. 기본값이에요                          |
 | `unsafe-url`                      | 경로와 쿼리까지 보내요                               |
 
-FE에서 중요한 점은 URL 쿼리에 토큰이나 쿠폰 코드를 넣어 둔 화면이에요. `unsafe-url`이면 그 값이 분석 서버로 나갈 수 있어요. 기본값을 유지하면 쿼리는 빠지고 출처만 나가요. 값을 바꾸는 결정은 개인정보와 분석 요구를 같이 보고 내려야 해요.
+FE에서 중요한 점은 URL 쿼리에 토큰이나 쿠폰 코드를 넣어 둔 화면이에요. `unsafe-url`이면 그 값이 분석 서버로 나갈 수 있어요. 기본값을 유지하면 쿼리는 빠지고 출처만 나가요.
+
+값을 바꾸는 결정은 개인정보와 분석 요구를 같이 보고 내려야 해요.
 
 ## 헤더 설계 — 막는 대상과 FE 동작 비교
 
@@ -95,7 +115,12 @@ FE에서 중요한 점은 URL 쿼리에 토큰이나 쿠폰 코드를 넣어 둔
 | `Strict-Transport-Security`           | HTTP로 가는 요청                       | http 주소가 https로 바뀌어 요청됨          |
 | `Referrer-Policy`                     | 요청에 실리는 Referer 범위             | 분석 서버가 받는 페이지 주소가 달라짐      |
 
-헤더마다 바꾸는 동작이 달라요. CSP는 자원 로딩과 실행을, 삽입 헤더는 iframe 생성을, HSTS는 주소 체계를, Referrer-Policy는 요청 메타데이터를 바꿔요.
+헤더마다 바꾸는 동작이 달라요.
+
+- CSP는 자원 로딩과 실행을 바꿔요.
+- 삽입 헤더는 iframe 생성을 바꿔요.
+- HSTS는 주소 체계를 바꿔요.
+- Referrer-Policy는 요청 메타데이터를 바꿔요.
 
 ## FE 체크 포인트
 
@@ -107,13 +132,19 @@ FE에서 중요한 점은 URL 쿼리에 토큰이나 쿠폰 코드를 넣어 둔
 
 **새 정책은 Report-Only로 먼저 보내요.** 배포 전에 위반 목록을 모으고, 목록이 비면 강제 헤더로 바꿔요. 실제 사용자가 막힌 뒤에 알게 되는 일을 줄이는 방법이에요.
 
-**CORS와 헷갈리지 않아요.** CSP는 페이지가 자원을 불러오고 실행하는 것을 정하고, CORS는 다른 출처 응답을 JS가 읽는 것을 정해요. 둘은 서로 다른 헤더예요. 응답 읽기 실패는 [CORS와 교차 출처 요청 모듈](/m/cors)에서, 쿠키 인증과 CSRF는 [인증 세션 · 토큰 모듈](/m/auth-session-token)에서 따로 다뤄요.
+**CORS와 헷갈리지 않아요.** CSP는 페이지가 자원을 불러오고 실행하는 것을 정하고, CORS는 다른 출처 응답을 JS가 읽는 것을 정해요. 둘은 서로 다른 헤더예요.
+
+응답 읽기 실패는 [CORS와 교차 출처 요청 모듈](/m/cors)에서, 쿠키 인증과 CSRF는 [인증 세션 · 토큰 모듈](/m/auth-session-token)에서 따로 다뤄요.
 
 ## 시뮬레이터 안내 — 정책 문자열과 자원 판정
 
 시뮬레이터는 CSP 정책 문자열, Report-Only 여부, 나머지 보안 헤더, 페이지가 로드하려는 자원 목록을 받아요. 기본값은 nonce와 해시를 쓰는 정책이에요. 이때 nonce가 없는 인라인 스크립트, 외부 분석 스크립트, 분석 이벤트 전송, 파트너 iframe 삽입이 막혀요.
 
-세 가지를 순서대로 바꿔 보세요. 먼저 "`'unsafe-inline'` 허용 (예전 방식)" 프리셋을 고르면 인라인과 외부 분석 스크립트가 통과해요. 다음으로 Report-Only를 켜면 같은 자원이 막히지 않고 "보고만"으로 바뀌어요. 마지막으로 HSTS를 켜고 다음 요청을 `http://api.shop.example/api/cart`로 바꾸면, includeSubDomains가 있을 때만 https로 바뀌는 것을 볼 수 있어요.
+세 가지를 순서대로 바꿔 보세요.
+
+- 먼저 "`'unsafe-inline'` 허용 (예전 방식)" 프리셋을 고르면 인라인과 외부 분석 스크립트가 통과해요.
+- 다음으로 Report-Only를 켜면 같은 자원이 막히지 않고 "보고만"으로 바뀌어요.
+- 마지막으로 HSTS를 켜고 다음 요청을 `http://api.shop.example/api/cart`로 바꾸면, includeSubDomains가 있을 때만 https로 바뀌는 것을 볼 수 있어요.
 
 이 시뮬레이터는 규칙만 옮긴 모델이에요. 페이지 안의 다른 자원, `strict-dynamic` 같은 지시문, 브라우저별 세부 동작은 계산하지 않아요.
 
